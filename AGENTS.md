@@ -81,5 +81,11 @@ Construir una **demo comercial de alta calidad**, no una plantilla autogenerada.
 - Utilizar Impeccable, si está instalado, para crítica y refinamiento **después de implementar**. Las dos herramientas son complementarias, no autoridades de marca.
 - Orden de prioridad ante conflictos: petición explícita del usuario → `DESIGN.md` y `README.md` → `AGENTS.md` → sugerencias de skills. Explicar cualquier cambio de diseño que requiera aprobación.
 
+## Flujo de conversión obligatorio
+- Leer [USER_FLOWS.md](./USER_FLOWS.md) antes de implementar navegación, fichas de producto, CTA o lista de consulta.
+- WhatsApp es el objetivo comercial: permitir consulta directa desde producto, consulta de varios artículos desde una lista y consulta general desde navegación/contacto.
+- Usar número configurable `5491131568131` (facilitado por el solicitante, **pendiente de verificación con Rial**), codificar mensajes con `encodeURIComponent` y no enviar automáticamente.
+- No crear checkout, pasarela de pago ni confirmaciones de compra. No inferir mensaje enviado a partir de un clic.
+
 ## Primera tarea esperada
 Inicializar Next.js + TS estricto + Tailwind, tokens semánticos y tema claro/oscuro/sistema. Después construir Header + Hero v2, **sin inventar contenido ni alterar la dirección de arte aprobada**.

@@ -64,5 +64,14 @@ Construir una **demo comercial de alta calidad**, no una plantilla autogenerada.
 5. **Pendientes:** riesgos, datos demo, assets sin licencia, decisiones abiertas.
 6. **Siguiente paso:** una acción concreta alineada al roadmap.
 
+
+## Uso de Impeccable y revisión visual
+- Leer [DESIGN.md](./DESIGN.md) antes de crear o modificar una interfaz.
+- Impeccable es una ayuda opcional para auditar, criticar, simplificar, adaptar y pulir pantallas; el README y DESIGN.md tienen prioridad cuando existan conflictos.
+- Verificar si está instalado y qué comandos ofrece la versión actual. No inventar comandos, resultados ni auditorías ejecutadas.
+- En cada cambio visual sustancial: (1) definir intención editorial y layout, (2) implementar, (3) inspeccionar capturas reales en móvil y desktop en ambos temas, (4) criticar composición, contraste, tipografía y patrones genéricos, (5) corregir y volver a comprobar.
+- Evitar la tentación de «mejorar» añadiendo gradientes, brillos, tarjetas o animaciones sin necesidad. El refinamiento suele consistir en quitar ruido y mejorar jerarquía.
+- En la entrega, distinguir entre revisión manual, revisión con Impeccable y pruebas automatizadas. No confundir una sugerencia de skill con validación funcional.
+
 ## Primera tarea esperada
 Inicializar Next.js + TS estricto + Tailwind, tokens semánticos y tema claro/oscuro/sistema. Después construir Header + Hero v2, **sin inventar contenido ni alterar la dirección de arte aprobada**.

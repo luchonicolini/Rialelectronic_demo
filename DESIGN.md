@@ -64,6 +64,13 @@ Valores propuestos, sujetos a verificación WCAG 2.2 AA. El azul es funcional, n
 ### Impeccable
 [Impeccable](https://impeccable.style/) puede asistir en crítica, auditoría, tipografía, layout, adaptación y pulido. Consultar los comandos instalados en la versión efectiva. No permitir que sus sugerencias contradigan esta dirección de arte sin revisión explícita. No afirmar que una auditoría se realizó sin ejecutarla.
 
+### UI UX Pro Max — Uso restringido
+[UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) es una **skill pendiente de instalación cuando comience el desarrollo**. Su función será aportar referencias de UX para e-commerce, jerarquía, patrones de navegación, diseño responsive y accesibilidad. No es fuente de verdad para la identidad de Rial.
+
+**Permitido:** evaluar alternativas de arquitectura visual, validar patrones de catálogo/cotización, detectar anti-patrones, consultar recomendaciones de componentes y comportamiento.
+
+**No permitido sin aprobación:** sustituir Geist Sans, cambiar tokens cromáticos, proponer un nuevo estilo visual como reemplazo de Editorial Commerce, agregar secciones genéricas o alterar la narrativa del hero. Contrastar siempre con este documento y usar Impeccable para la revisión posterior cuando esté disponible.
+
 ## Pendientes de aprobación
 - Fotografía y licencia del producto del hero; uso de logotipo oficial.
 - Titular comercial definitivo y cualquier claim sobre originalidad, seguridad o precios.

@@ -181,6 +181,10 @@ Para Antigravity y OpenCode, usar respectivamente `uipro init --ai antigravity` 
 - [ ] Confirmar que el agente reconoce la skill y registrar la versión y el método utilizado.
 - [ ] Instalar/configurar Impeccable por separado cuando corresponda.
 
+## Flujo de conversión: WhatsApp
+
+La conversión principal es **iniciar una consulta comercial por WhatsApp**, no completar un checkout. Los recorridos de consulta directa por producto, lista de varios productos y contacto general están especificados en [USER_FLOWS.md](./USER_FLOWS.md). Número facilitado para la demo: **11 3156-8131**, enlace previsto `https://wa.me/5491131568131` (pendiente de validar como canal autorizado de Rial antes de publicar). La lista de consulta no representa una compra ni confirma stock.
+
 ## Estado actual
 
 **Planificación y dirección de arte v1 definidas.** Este repositorio parte sin aplicación implementada; las pantallas producidas hasta ahora son conceptos visuales, no código ni especificación pixel-perfect definitiva. La próxima tarea es inicializar la base y desarrollar **Header + Hero v2** con aprobación visual.

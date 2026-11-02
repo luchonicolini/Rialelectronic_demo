@@ -71,6 +71,9 @@ Valores propuestos, sujetos a verificación WCAG 2.2 AA. El azul es funcional, n
 
 **No permitido sin aprobación:** sustituir Geist Sans, cambiar tokens cromáticos, proponer un nuevo estilo visual como reemplazo de Editorial Commerce, agregar secciones genéricas o alterar la narrativa del hero. Contrastar siempre con este documento y usar Impeccable para la revisión posterior cuando esté disponible.
 
+## Flujo de interacción prioritario
+Consultar [USER_FLOWS.md](./USER_FLOWS.md). La acción comercial principal es **«Consultar por WhatsApp»**, accesible desde producto y lista de consulta; «Ver catálogo» permite explorar. Mantener una jerarquía clara de CTAs, sin convertir toda la interfaz en botones verdes ni incorporar un checkout. El número configurado para la demo es `5491131568131`, pendiente de confirmar con Rial antes de publicación.
+
 ## Pendientes de aprobación
 - Fotografía y licencia del producto del hero; uso de logotipo oficial.
 - Titular comercial definitivo y cualquier claim sobre originalidad, seguridad o precios.

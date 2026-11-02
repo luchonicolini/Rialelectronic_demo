@@ -74,6 +74,9 @@ Valores propuestos, sujetos a verificación WCAG 2.2 AA. El azul es funcional, n
 ## Flujo de interacción prioritario
 Consultar [USER_FLOWS.md](./USER_FLOWS.md). La acción comercial principal es **«Consultar por WhatsApp»**, accesible desde producto y lista de consulta; «Ver catálogo» permite explorar. Mantener una jerarquía clara de CTAs, sin convertir toda la interfaz en botones verdes ni incorporar un checkout. El número configurado para la demo es `5491131568131`, pendiente de confirmar con Rial antes de publicación.
 
+## Navbar + Hero: English creative brief
+The dedicated [HERO_DESIGN_BRIEF.md](./HERO_DESIGN_BRIEF.md) defines the art-direction exploration and high-fidelity deliverables for the navbar and hero. It supplements, but does not override, this design system. The final concept requires approval before implementation.
+
 ## Pendientes de aprobación
 - Fotografía y licencia del producto del hero; uso de logotipo oficial.
 - Titular comercial definitivo y cualquier claim sobre originalidad, seguridad o precios.

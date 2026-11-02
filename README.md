@@ -162,6 +162,25 @@ Según compatibilidad y versión, iniciar su configuración y activar las revisi
 
 **Ciclo recomendado por pantalla:** especificar → implementar → capturar en navegador → evaluar jerarquía, tipografía, espaciado y responsive → simplificar → pulir → volver a comprobar accesibilidad y funcionalidad. Documentar en [DESIGN.md](./DESIGN.md) las decisiones de arte y los criterios de aceptación.
 
+## Herramienta pendiente de instalación: UI UX Pro Max
+
+Al **iniciar el desarrollo del código**, instalar [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) en el entorno del agente que se vaya a utilizar. **No está instalada actualmente**; esta sección es una tarea de preparación, no una dependencia de ejecución de la web.
+
+Según el README oficial, para Codex CLI:
+
+```bash
+npm install -g ui-ux-pro-max-cli
+uipro init --ai codex
+```
+
+Para Antigravity y OpenCode, usar respectivamente `uipro init --ai antigravity` y `uipro init --ai opencode`, desde el directorio del proyecto. Revisar las instrucciones y versiones oficiales antes de ejecutar; evitar instalar en todos los agentes sin necesidad. Si se requiere instalación local/reproducible, evaluar el método apropiado y documentarlo.
+
+**Responsabilidades:** UI UX Pro Max ayuda a investigar patrones UX de e-commerce, navegación y componentes **antes de implementar**; Impeccable ayuda a criticar y refinar las pantallas **después de implementar**. El [DESIGN.md](./DESIGN.md) y el [AGENTS.md](./AGENTS.md) prevalecen sobre recomendaciones de ambas skills. No regenerar la identidad de marca automáticamente.
+
+- [ ] Instalar y verificar UI UX Pro Max en el entorno del agente seleccionado cuando comience la fase de código.
+- [ ] Confirmar que el agente reconoce la skill y registrar la versión y el método utilizado.
+- [ ] Instalar/configurar Impeccable por separado cuando corresponda.
+
 ## Estado actual
 
 **Planificación y dirección de arte v1 definidas.** Este repositorio parte sin aplicación implementada; las pantallas producidas hasta ahora son conceptos visuales, no código ni especificación pixel-perfect definitiva. La próxima tarea es inicializar la base y desarrollar **Header + Hero v2** con aprobación visual.

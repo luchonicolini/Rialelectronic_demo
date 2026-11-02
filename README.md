@@ -147,6 +147,21 @@ No se requiere seguir esta estructura ciegamente: preservar convenciones coheren
 
 **Antes de editar código, leer [AGENTS.md](./AGENTS.md) íntegramente.** Inspeccionar el repositorio y las instrucciones existentes; explicar plan corto, implementar cambios mínimos coherentes, ejecutar controles y reportar resultados reales. Nunca afirmar que se probó algo si no se ejecutó.
 
+
+## Flujo de calidad visual con Impeccable
+
+Se recomienda [Impeccable](https://impeccable.style/) como **herramienta complementaria** de crítica y refinamiento de UI para agentes compatibles. No sustituye el criterio editorial, el Design System ni la verificación en navegador.
+
+Desde el directorio del proyecto, consultar las instrucciones vigentes del proveedor antes de instalar:
+
+```bash
+npx impeccable install
+```
+
+Según compatibilidad y versión, iniciar su configuración y activar las revisiones pertinentes siguiendo su documentación. Los comandos disponibles pueden variar; **no suponer que una skill o hook está instalado solo por estar mencionado aquí**.
+
+**Ciclo recomendado por pantalla:** especificar → implementar → capturar en navegador → evaluar jerarquía, tipografía, espaciado y responsive → simplificar → pulir → volver a comprobar accesibilidad y funcionalidad. Documentar en [DESIGN.md](./DESIGN.md) las decisiones de arte y los criterios de aceptación.
+
 ## Estado actual
 
 **Planificación y dirección de arte v1 definidas.** Este repositorio parte sin aplicación implementada; las pantallas producidas hasta ahora son conceptos visuales, no código ni especificación pixel-perfect definitiva. La próxima tarea es inicializar la base y desarrollar **Header + Hero v2** con aprobación visual.

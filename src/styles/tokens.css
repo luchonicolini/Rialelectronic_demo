@@ -1,0 +1,45 @@
+/*
+ * Tokens semánticos — DESIGN.md v1
+ * El azul es funcional (acción, foco, selección), no decorativo.
+ * Valores sujetos a verificación WCAG 2.2 AA antes de publicar.
+ */
+
+:root {
+  color-scheme: light;
+
+  --background: #f7f8fa;
+  --surface: #ffffff;
+  --elevated: #edf1f5;
+  --border: #d8dfe7;
+
+  --text-primary: #131b26;
+  --text-secondary: #586575;
+
+  --accent: #086cd9;
+  --accent-contrast: #ffffff;
+
+  --success: #15966a;
+  --warning: #d99618;
+  --error: #d84a54;
+
+  --duration-feedback: 160ms;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #0b0f14;
+  --surface: #151b23;
+  --elevated: #202833;
+  --border: #34404e;
+
+  --text-primary: #f5f7fa;
+  --text-secondary: #a7b2c0;
+
+  --accent: #1684f8;
+  --accent-contrast: #0b0f14;
+
+  --success: #15966a;
+  --warning: #d99618;
+  --error: #d84a54;
+}

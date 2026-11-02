@@ -87,5 +87,8 @@ Construir una **demo comercial de alta calidad**, no una plantilla autogenerada.
 - Usar número configurable `5491131568131` (facilitado por el solicitante, **pendiente de verificación con Rial**), codificar mensajes con `encodeURIComponent` y no enviar automáticamente.
 - No crear checkout, pasarela de pago ni confirmaciones de compra. No inferir mensaje enviado a partir de un clic.
 
+## English design brief — mandatory reading
+Before creating the navbar or hero, read [HERO_DESIGN_BRIEF.md](./HERO_DESIGN_BRIEF.md) alongside DESIGN.md and USER_FLOWS.md. First propose three distinct visual concepts, then prepare desktop/mobile dark/light designs for approval. Do not implement an unapproved hero concept or replace existing tokens with skill-generated defaults.
+
 ## Primera tarea esperada
 Inicializar Next.js + TS estricto + Tailwind, tokens semánticos y tema claro/oscuro/sistema. Después construir Header + Hero v2, **sin inventar contenido ni alterar la dirección de arte aprobada**.

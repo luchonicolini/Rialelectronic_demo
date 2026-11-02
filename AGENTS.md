@@ -73,5 +73,13 @@ Construir una **demo comercial de alta calidad**, no una plantilla autogenerada.
 - Evitar la tentación de «mejorar» añadiendo gradientes, brillos, tarjetas o animaciones sin necesidad. El refinamiento suele consistir en quitar ruido y mejorar jerarquía.
 - En la entrega, distinguir entre revisión manual, revisión con Impeccable y pruebas automatizadas. No confundir una sugerencia de skill con validación funcional.
 
+## Preparación de herramientas al comenzar el código
+- **UI UX Pro Max está planificada, NO instalada.** Antes de la primera implementación visual, revisar su documentación oficial: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+- Instalar solo en el agente elegido y con autorización del usuario para cambios de entorno. Ejemplo documentado para Codex: `npm install -g ui-ux-pro-max-cli`, seguido de `uipro init --ai codex` desde el proyecto. Para Antigravity u OpenCode, elegir la opción `--ai` correspondiente.
+- Verificar instalación, comandos reales y compatibilidad; registrar versión y resultados. Nunca afirmar que está instalada sin comprobarlo.
+- Utilizar UI UX Pro Max para consultar patrones UX, estructura de e-commerce y guías de accesibilidad **antes de implementar**; no aplicar automáticamente sus paletas, tipografías, estilos o estructura de landing.
+- Utilizar Impeccable, si está instalado, para crítica y refinamiento **después de implementar**. Las dos herramientas son complementarias, no autoridades de marca.
+- Orden de prioridad ante conflictos: petición explícita del usuario → `DESIGN.md` y `README.md` → `AGENTS.md` → sugerencias de skills. Explicar cualquier cambio de diseño que requiera aprobación.
+
 ## Primera tarea esperada
 Inicializar Next.js + TS estricto + Tailwind, tokens semánticos y tema claro/oscuro/sistema. Después construir Header + Hero v2, **sin inventar contenido ni alterar la dirección de arte aprobada**.

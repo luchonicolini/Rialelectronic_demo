@@ -243,10 +243,6 @@ export function ShippingSection() {
                         A todo el país. El costo y el plazo se confirman según el producto y el
                         destino antes de despachar.
                       </p>
-                      <span className="inline-flex items-center gap-2 mt-3 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-                        <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
-                        Costo y plazo informados por WhatsApp
-                      </span>
                     </div>
                   </article>
 
@@ -265,10 +261,6 @@ export function ShippingSection() {
                       <p className="mt-1.5 max-w-[48ch] text-sm text-muted-foreground leading-[1.7] text-pretty">
                         Acordamos el punto de encuentro y el horario antes de que te acerques.
                       </p>
-                      <span className="inline-flex items-center gap-2 mt-3 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-                        <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
-                        Punto y horario acordados con vos
-                      </span>
                     </div>
                   </article>
                 </div>

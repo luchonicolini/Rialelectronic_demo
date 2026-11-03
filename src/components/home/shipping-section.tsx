@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin, MessageCircle, PackageCheck, Truck } from "lucide-react";
+import { ArrowUpRight, MapPin, MessageCircle, Package, PackageCheck, Truck } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { whatsappUrl } from "@/lib/site";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
 export function ShippingSection() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section
       id="envios"
@@ -33,22 +35,109 @@ export function ShippingSection() {
               </p>
             </div>
 
-            {/* Cuerpo: Imagen y Rutas */}
-            <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] items-stretch gap-8 lg:gap-12 py-7 sm:py-9">
-              {/* Foto de Logística */}
-              <figure className="order-2 lg:order-1 relative min-h-[220px] sm:min-h-[280px] lg:min-h-[400px] h-full rounded-[20px] overflow-hidden bg-[#eef0f3] dark:bg-elevated border border-border/60">
-                <Image
-                  src="/images/delivery-package.jpg"
-                  alt="Paquetes organizados en un centro logístico de Rial Electrónica"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0b12]/80 via-[#0c0b12]/20 to-transparent pointer-events-none" />
-                <figcaption className="absolute z-10 bottom-5 inset-x-6 text-white text-sm leading-relaxed text-balance">
-                  Coordinamos cada entrega antes de despachar.
-                </figcaption>
-              </figure>
+            {/* Cuerpo: Efecto de Envío en Vivo y Rutas */}
+            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] items-stretch gap-8 lg:gap-12 py-7 sm:py-9">
+              {/* Tarjeta Visual: Efecto de Envío y Tracking GPS en Vivo */}
+              <div className="order-2 lg:order-1 relative rounded-[22px] sm:rounded-[24px] bg-[#f8f9fb] dark:bg-elevated/40 border border-border/80 p-5 sm:p-6 shadow-xs flex flex-col justify-between overflow-hidden min-h-[360px] sm:min-h-[400px]">
+                {/* Cabecera del Mapa en Vivo */}
+                <div className="flex items-center justify-between pb-3.5 border-b border-border/70">
+                  <div className="flex items-center gap-2">
+                    <span className="size-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs sm:text-sm font-bold text-foreground tracking-tight">
+                      En camino a tu domicilio
+                    </span>
+                  </div>
+                  <span className="text-[11px] sm:text-xs font-medium text-muted-foreground">
+                    Hoy, 15:40 hs
+                  </span>
+                </div>
+
+                {/* Lienzo del Mapa con Trazado Callejero y Recorrido Animado */}
+                <div className="relative w-full flex-1 my-3 sm:my-4 rounded-[18px] bg-white dark:bg-surface border border-border/60 overflow-hidden min-h-[220px]">
+                  {/* Cuadrícula Callejera de Fondo */}
+                  <svg
+                    viewBox="0 0 340 220"
+                    className="absolute inset-0 w-full h-full stroke-gray-200 dark:stroke-white/10 fill-none"
+                    strokeWidth="2.5"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path d="M 0,35 Q 80,45 200,30 T 340,40" />
+                    <path d="M 0,85 Q 90,80 180,95 T 340,90" />
+                    <path d="M 0,140 Q 110,135 220,150 T 340,140" />
+                    <path d="M 0,195 Q 120,190 240,205 T 340,195" />
+                    <path d="M 45,0 Q 55,70 45,220" />
+                    <path d="M 120,0 Q 130,90 125,220" />
+                    <path d="M 200,0 Q 190,80 205,220" />
+                    <path d="M 280,0 Q 290,90 285,220" />
+                  </svg>
+
+                  {/* Trayectoria Animada del Envío */}
+                  <svg
+                    viewBox="0 0 340 220"
+                    className="absolute inset-0 w-full h-full fill-none overflow-visible"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <motion.path
+                      d="M 45,45 L 45,95 L 120,90 L 155,125 L 200,120 L 240,165"
+                      stroke="#0d7a53"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ pathLength: reducedMotion ? 1 : 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.6, ease: "easeInOut" }}
+                    />
+                  </svg>
+
+                  {/* Nodo Inicial: Depósito Central */}
+                  <div
+                    className="absolute left-[13.2%] top-[20.4%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
+                    title="Depósito Rial Electrónica"
+                  >
+                    <div className="size-8 sm:size-9 rounded-xl bg-[#171d25] text-white flex items-center justify-center shadow-md">
+                      <Package className="size-4" aria-hidden="true" />
+                    </div>
+                  </div>
+
+                  {/* Nodo Final: Domicilio con Efecto Radar Ping */}
+                  <div
+                    className="absolute left-[70.5%] top-[75%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
+                    title="Destino del comprador"
+                  >
+                    {!reducedMotion && (
+                      <span
+                        className="absolute size-10 sm:size-11 rounded-full bg-emerald-500/30 animate-ping pointer-events-none"
+                        aria-hidden="true"
+                      />
+                    )}
+                    <div className="relative size-8 sm:size-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                      <MapPin className="size-4.5" aria-hidden="true" />
+                    </div>
+                  </div>
+
+                  {/* Badge de Flota Logística Flotante */}
+                  <div className="absolute bottom-3 left-3 bg-white/95 dark:bg-surface/95 backdrop-blur-sm border border-border/80 px-2.5 sm:px-3 py-1.5 rounded-xl shadow-xs flex items-center gap-2">
+                    <Truck className="size-3.5 text-emerald-600 dark:text-emerald-500" aria-hidden="true" />
+                    <span className="text-[11px] font-semibold text-foreground">
+                      Despacho vía Andreani
+                    </span>
+                  </div>
+                </div>
+
+                {/* Pie del Mapa con Código de Tracking */}
+                <div className="flex items-center justify-between pt-2 border-t border-border/70">
+                  <span className="text-xs font-medium text-muted-foreground">
+                    Seguimiento: <strong className="text-foreground font-semibold">AR-9482103</strong>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                    <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
+                    A tiempo
+                  </span>
+                </div>
+              </div>
 
               {/* Árbol de Rutas y Estados */}
               <div className="order-1 lg:order-2 flex flex-col justify-center">

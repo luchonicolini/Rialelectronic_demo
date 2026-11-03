@@ -15,7 +15,7 @@ export function ShippingSection() {
     >
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 xl:px-14">
         <BlurReveal duration={0.65} yOffset={24}>
-          <div className="rounded-[20px] sm:rounded-[28px] border border-border/80 bg-[#f9f9fb] dark:bg-surface p-6 sm:p-10 lg:px-10 lg:pt-14 lg:pb-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-foreground">
+          <div className="rounded-[20px] sm:rounded-[28px] border border-border bg-white dark:bg-surface p-6 sm:p-10 lg:px-10 lg:pt-14 lg:pb-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-foreground">
             {/* Encabezado */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] items-end gap-5 lg:gap-12 pb-7 lg:pb-9 border-b border-border/70">
               <h2

@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { HeroShowcase } from "@/components/home/hero-showcase";
 import { CategoriesGrid } from "@/components/home/categories-grid";
 import { FeaturedGrid } from "@/components/home/featured-grid";
+import { WholesaleBanner } from "@/components/home/wholesale-banner";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { ShippingSection } from "@/components/home/shipping-section";
 import { TestimonialsGrid } from "@/components/home/testimonials-grid";
@@ -17,6 +18,7 @@ export default function Home() {
         <HeroShowcase />
         <CategoriesGrid />
         <FeaturedGrid />
+        <WholesaleBanner />
         <HowItWorks />
         <ShippingSection />
         <TestimonialsGrid />

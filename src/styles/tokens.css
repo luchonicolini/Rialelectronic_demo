@@ -1,28 +1,28 @@
 /*
- * Tokens semánticos — Design System Editorial Tech (Modo Claro Exclusivo)
- * Paleta editorial monocromática y sobria.
- * Canvas luminoso (#f8fafc), superficies puras (#ffffff) y acento negro grisáceo (#171d25) estilo Apple / Linear / Leica.
+ * Tokens semánticos — Design System Editorial Tech
+ * Paleta editorial con canvas blanco claro suave #f9f9fb (tono porcelana de "Recibilo sin complicaciones")
+ * Superficies puras (#ffffff) y acento negro carbón (#171d25).
  */
 
 :root {
   color-scheme: light;
 
   /* Canvas y Superficies */
-  --background: #f8fafc; /* Slate 50: Canvas suave, limpio y moderno */
+  --background: #f9f9fb; /* Blanco claro porcelana (#f9f9fb) de Recibilo sin complicaciones */
   --surface: #ffffff; /* Blanco puro: Tarjetas, componentes y superficies elevadas */
-  --elevated: #f1f5f9; /* Slate 100: Badges, buscador, hover states y chips */
-  --border: #e2e8f0; /* Slate 200: Bordes nítidos y delicados de 1px */
+  --elevated: #eef0f3; /* Gris perla claro: Podios, badges, chips y hover states */
+  --border: #e5e7eb; /* Bordes sutiles y delicados de 1px */
 
   /* Jerarquía Tipográfica */
-  --text-primary: #0f172a; /* Slate 900: Máxima legibilidad y contraste editorial */
-  --text-secondary: #526071; /* Slate 600 balanceado: Texto secundario legible WCAG AA */
+  --text-primary: #111827; /* Gray 900: Máxima legibilidad editorial */
+  --text-secondary: #526071; /* Slate 600 balanceado: WCAG AA */
 
   /* Acentos y Acciones */
-  --accent: #171d25; /* Negro grisáceo profundo (charcoal / grafito editorial) */
+  --accent: #171d25; /* Negro grisáceo profundo (charcoal / grafito) */
   --accent-contrast: #ffffff;
 
   /* Estados Funcionales */
-  --success: #0d7a53; /* Esmeralda sobrio para cotizaciones y stock confirmado */
+  --success: #0d7a53; /* Esmeralda sobrio */
   --warning: #d97706; /* Ámbar 600 */
   --error: #dc2626; /* Rojo 600 */
 

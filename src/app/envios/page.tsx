@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
-import { SectionPlaceholder } from "@/components/layout/section-placeholder";
+import { SiteHeader } from "@/components/layout/site-header";
+import { ShippingSection } from "@/components/home/shipping-section";
+import { FaqSection } from "@/components/home/faq-section";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsappFloat } from "@/components/home/whatsapp-float";
 
 export const metadata: Metadata = {
-  title: "Envíos",
+  title: "Envíos y Retiros — Rial Electrónica",
+  description: "Despachos asegurados a todo el país vía Andreani y Correo Argentino, o retiro coordinado.",
 };
 
 export default function EnviosPage() {
   return (
-    <SectionPlaceholder
-      title="Envíos"
-      description="La información de envíos se publicará únicamente cuando esté verificada. Mientras tanto, la consulta por WhatsApp es el canal disponible."
-    />
+    <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-white">
+      <SiteHeader />
+      <main id="contenido" className="flex-1">
+        <ShippingSection />
+        <FaqSection />
+      </main>
+      <SiteFooter />
+      <WhatsappFloat />
+    </div>
   );
 }

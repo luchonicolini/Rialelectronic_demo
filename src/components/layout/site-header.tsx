@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { HeaderNav } from "@/components/layout/header-nav";
 import { HeaderSearch } from "@/components/layout/header-search";
+import { UsdtBadge } from "@/components/layout/usdt-badge";
 import {
   ArrowUpRightIcon,
   CloseIcon,
@@ -88,15 +89,8 @@ export function SiteHeader() {
             <SearchIcon className="size-4" />
           </button>
 
-          {/* Indicador de Cotización USDT de referencia (Tipografía editorial, sin parpadeos) */}
-          <div
-            title="Cotización USDT de referencia estimada de mercado"
-            className="hidden sm:inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/40 px-3 text-xs tracking-tight select-none"
-          >
-            <span className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0" aria-hidden="true" />
-            <span className="font-medium text-muted-foreground">USDT</span>
-            <span className="font-semibold text-foreground tabular-nums">$1.657,71</span>
-          </div>
+          {/* Indicador de Cotización USDT en vivo vía DolarApi */}
+          <UsdtBadge className="hidden sm:inline-flex h-10" />
 
           {/* Botón Carrito / Lista de Cotización */}
           <Link
@@ -152,13 +146,9 @@ export function SiteHeader() {
             />
 
             <div className="mt-4 pt-3 border-t border-border/80 flex items-center justify-between gap-4">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-foreground">
-                <span className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0" aria-hidden="true" />
-                <span className="text-muted-foreground font-medium">USDT</span>
-                <span className="tabular-nums font-semibold">$1.657,71</span>
-              </div>
+              <UsdtBadge className="h-9" />
               <span className="text-[11px] text-muted-foreground">
-                Cotización de referencia
+                Cotización en vivo
               </span>
             </div>
 

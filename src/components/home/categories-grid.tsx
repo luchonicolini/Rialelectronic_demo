@@ -44,17 +44,9 @@ export function CategoriesGrid() {
 
         {/* Grilla de Podios de Hardware: 3 columnas en mobile, 6 en desktop */}
         <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
-          {MOCK_CATEGORIES.map((category, index) => (
+          {MOCK_CATEGORIES.map((category) => (
             <motion.div
               key={category.id}
-              initial={reduced ? undefined : { opacity: 0, y: 18, filter: "blur(10px)" }}
-              whileInView={
-                reduced
-                  ? undefined
-                  : { opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }
-              }
-              viewport={{ once: true, margin: "-30px 0px" }}
-              transition={{ duration: 0.55, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
               whileHover={reduced ? undefined : { y: -3 }}
               whileTap={reduced ? undefined : { scale: 0.97 }}
               className="h-full"

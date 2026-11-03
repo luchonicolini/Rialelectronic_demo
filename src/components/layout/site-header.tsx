@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { HeaderNav } from "@/components/layout/header-nav";
 import { HeaderSearch } from "@/components/layout/header-search";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {
   ArrowUpRightIcon,
   CloseIcon,
@@ -114,21 +113,6 @@ export function SiteHeader() {
             <ShoppingCart className="size-3.5 text-foreground shrink-0" aria-hidden="true" />
             <span>Carrito</span>
           </Link>
-
-          {/* Selector de Tema */}
-          <ThemeToggle />
-
-          {/* Enlace WhatsApp Desktop */}
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group hidden h-9 items-center gap-1.5 border-l border-border pl-3 text-xs font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface xl:inline-flex"
-          >
-            WhatsApp
-            <ArrowUpRightIcon className="size-3 text-muted-foreground transition-transform duration-[var(--duration-feedback)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            <span className="sr-only">(se abre en una pestaña nueva)</span>
-          </a>
 
           {/* Botón Menú Mobile */}
           <button

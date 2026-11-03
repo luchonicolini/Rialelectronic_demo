@@ -7,23 +7,17 @@ export function WhatsappFloat() {
   return (
     <aside
       aria-label="Atención por WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3"
+      className="fixed bottom-6 right-6 z-40 flex items-center"
     >
       <a
         href={whatsappUrl("¡Hola Rial Electrónica! Vengo desde la web y quiero consultar por un producto.")}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar a Rial Electrónica por WhatsApp"
-        className="group relative flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+        className="inline-flex items-center gap-2 rounded-full bg-[#128C7E] px-4 py-2.5 text-xs font-semibold text-white shadow-md transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128C7E]"
       >
-        <span className="relative flex size-3">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-          <span className="relative inline-flex size-3 rounded-full bg-white" />
-        </span>
-        <MessageCircle className="size-5 fill-current" />
-        <span className="hidden text-sm font-bold sm:inline">
-          Consultar por WhatsApp
-        </span>
+        <MessageCircle className="size-4" />
+        <span>Consultar por WhatsApp</span>
       </a>
     </aside>
   );

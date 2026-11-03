@@ -1,5 +1,6 @@
 import { Search, MessageSquareQuote, ShieldCheck } from "lucide-react";
 import { whatsappUrl } from "@/lib/site";
+import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const STEPS = [
   {
@@ -29,56 +30,60 @@ export function HowItWorks() {
   return (
     <section id="como-comprar" className="py-14 sm:py-20 border-b border-border bg-background">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 xl:px-14">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
-            Transparencia total
-          </span>
-          <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
-            ¿Cómo comprar en Rial Electrónica?
-          </h2>
-          <p className="mt-3 text-base text-muted-foreground">
-            Un proceso directo y seguro, sin intermediarios ni letra chica.
-          </p>
-        </div>
+        <BlurReveal duration={0.6} yOffset={20}>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
+              Transparencia total
+            </span>
+            <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+              ¿Cómo comprar en{" "}
+              <span className="font-serif italic font-normal tracking-normal text-[var(--accent)]">
+                Rial Electrónica?
+              </span>
+            </h2>
+            <p className="mt-3 text-base text-muted-foreground">
+              Un proceso directo y seguro, sin intermediarios ni letra chica.
+            </p>
+          </div>
+        </BlurReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {STEPS.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div
-                key={step.number}
-                className="flex flex-col rounded-2xl border border-border bg-surface p-7 relative transition-all hover:border-[var(--accent)] hover:shadow-md"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="size-12 rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center font-bold">
-                    <Icon className="size-6" />
+              <BlurReveal key={step.number} delay={0.1 * index} duration={0.5} yOffset={20}>
+                <div className="flex flex-col h-full rounded-2xl border border-border bg-surface p-7 relative transition-all duration-300 hover:border-[var(--accent)] hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="size-12 rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center font-bold">
+                      <Icon className="size-6" />
+                    </div>
+                    <span className="text-3xl font-extrabold tracking-tighter text-muted-foreground/30 font-serif">
+                      {step.number}
+                    </span>
                   </div>
-                  <span className="text-3xl font-extrabold tracking-tighter text-muted-foreground/30">
-                    {step.number}
-                  </span>
-                </div>
 
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
-              </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
+                </div>
+              </BlurReveal>
             );
           })}
         </div>
 
-        <div className="mt-12 text-center">
+        <BlurReveal delay={0.25} duration={0.5} yOffset={12} className="mt-12 text-center">
           <a
             href={whatsappUrl("¡Hola Rial Electrónica! Quiero consultar cómo es el proceso de compra para un equipo.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-8 text-sm font-semibold text-white shadow-sm hover:opacity-95 transition-opacity"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-8 text-sm font-bold text-white shadow-md hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0 transition-all"
           >
             Hablar con un asesor ahora
           </a>
-        </div>
+        </BlurReveal>
       </div>
     </section>
   );

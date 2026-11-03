@@ -43,9 +43,10 @@ export function SiteHeader() {
         <Link
           href="/"
           onClick={() => setPanel(null)}
-          className="shrink-0 text-[15px] font-semibold tracking-[-0.015em]"
+          className="shrink-0 text-lg sm:text-xl font-extrabold tracking-tight text-foreground flex items-center gap-1.5"
         >
-          Rial Electrónica
+          <span>Rial Electrónica</span>
+          <span className="size-1.5 rounded-full bg-[var(--accent)]" />
         </Link>
 
         <HeaderNav className="hidden lg:block" />

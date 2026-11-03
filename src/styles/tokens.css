@@ -7,13 +7,13 @@
 :root {
   color-scheme: light;
 
-  --background: #f7f8fa;
+  --background: #ffffff;
   --surface: #ffffff;
-  --elevated: #edf1f5;
-  --border: #d8dfe7;
+  --elevated: #f8fafc;
+  --border: #e2e8f0;
 
-  --text-primary: #131b26;
-  --text-secondary: #586575;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
 
   --accent: #086cd9;
   --accent-contrast: #ffffff;

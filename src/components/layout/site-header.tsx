@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HeaderNav } from "@/components/layout/header-nav";
 import { HeaderSearch } from "@/components/layout/header-search";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {
   ArrowUpRightIcon,
   CloseIcon,
@@ -16,7 +17,7 @@ import { whatsappUrl } from "@/lib/site";
 type Panel = "search" | "menu" | null;
 
 const iconButton =
-  "inline-flex size-10 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground";
+  "inline-flex size-10 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
 
 export function SiteHeader() {
   const [panel, setPanel] = useState<Panel>(null);
@@ -37,15 +38,15 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur-md transition-colors">
-      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center gap-4 px-3 sm:px-6 lg:h-20 lg:gap-10 lg:px-10 xl:px-14">
+    <header className="sticky top-0 z-40 border-b border-border bg-surface transition-colors">
+      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center gap-4 px-4 sm:px-6 lg:h-20 lg:gap-10 lg:px-10 xl:px-14">
         <Link
           href="/"
           onClick={() => setPanel(null)}
-          className="shrink-0 text-lg sm:text-xl font-extrabold tracking-tight text-foreground flex items-center gap-1.5"
+          className="group flex shrink-0 items-center gap-2 text-[15px] font-semibold tracking-[-0.02em] text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:text-base"
         >
-          <span>Rial Electrónica</span>
-          <span className="size-1.5 rounded-full bg-[var(--accent)]" />
+          <span className="flex size-7 items-center justify-center border border-foreground text-[10px] font-bold tracking-[-0.08em] transition-colors group-hover:bg-foreground group-hover:text-background">R</span>
+          <span>Rial <span className="font-normal text-muted-foreground">Electrónica</span></span>
         </Link>
 
         <HeaderNav className="hidden lg:block" />
@@ -73,11 +74,13 @@ export function SiteHeader() {
             <ListIcon className="size-5" />
           </Link>
 
+          <ThemeToggle />
+
           <a
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="group hidden h-10 items-center gap-1.5 px-2 text-sm font-medium text-foreground sm:inline-flex"
+            className="group hidden h-10 items-center gap-1.5 border-l border-border px-3 text-sm font-medium text-foreground transition-colors duration-[var(--duration-feedback)] hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:inline-flex"
           >
             WhatsApp
             <ArrowUpRightIcon className="size-3.5 text-muted-foreground transition-transform duration-[var(--duration-feedback)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

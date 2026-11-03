@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ShieldCheck, BadgeCheck, Headphones } from "lucide-react";
 import { whatsappUrl } from "@/lib/site";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
@@ -83,9 +83,56 @@ export function HeroShowcase() {
               </a>
             </div>
 
-            <p className="mt-8 max-w-[52ch] border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground">
-              Elegí lo que te interesa; la consulta no confirma una reserva ni un pago.
-            </p>
+            {/* Pilares de confianza editoriales */}
+            <div className="mt-9 sm:mt-11 border-t border-border/80 pt-6 sm:pt-7">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-elevated border border-border/70 text-foreground">
+                    <ShieldCheck className="size-4" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold tracking-tight text-foreground uppercase">
+                      Compra segura
+                    </h3>
+                    <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground">
+                      Confirmás todo antes de abonar
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-elevated border border-border/70 text-foreground">
+                    <BadgeCheck className="size-4" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold tracking-tight text-foreground uppercase">
+                      100% Originales
+                    </h3>
+                    <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground">
+                      Equipos nuevos en caja sellada
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-elevated border border-border/70 text-foreground">
+                    <Headphones className="size-4" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold tracking-tight text-foreground uppercase">
+                      Atención directa
+                    </h3>
+                    <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground">
+                      Asesoramiento personalizado
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-6 text-[12px] leading-relaxed text-muted-foreground/80">
+                Elegí lo que te interesa; la consulta por WhatsApp no confirma una reserva ni un pago.
+              </p>
+            </div>
           </BlurReveal>
 
           {/* Columna Derecha: Showroom Interactivo con Crossfade */}

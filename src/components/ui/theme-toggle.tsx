@@ -34,7 +34,7 @@ export function ThemeToggle() {
       onClick={() => setTheme(next)}
       aria-label={`Tema: ${LABELS[current]}. Cambiar a ${LABELS[next]}.`}
       title={`Tema: ${LABELS[current]}`}
-      className="inline-flex size-10 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground"
+      className="inline-flex size-10 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
     >
       <ThemeIcon theme={current} />
     </button>

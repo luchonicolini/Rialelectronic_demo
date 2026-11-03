@@ -36,9 +36,9 @@ export function ShippingSection() {
             </div>
 
             {/* Cuerpo: Efecto de Envío en Vivo y Rutas */}
-            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] items-stretch gap-8 lg:gap-12 py-7 sm:py-9">
-              {/* Tarjeta Visual: Efecto de Envío y Tracking GPS en Vivo */}
-              <div className="order-2 lg:order-1 relative rounded-[22px] sm:rounded-[24px] bg-[#f8f9fb] dark:bg-elevated/40 border border-border/80 p-5 sm:p-6 shadow-xs flex flex-col justify-between overflow-hidden min-h-[360px] sm:min-h-[400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] items-stretch gap-8 lg:gap-12 py-7 sm:py-9">
+              {/* Tarjeta Visual: Efecto de Envío con Mapa Urbano Auténtico */}
+              <div className="order-2 lg:order-1 relative rounded-[22px] sm:rounded-[24px] bg-[#f8f9fb] dark:bg-elevated/40 border border-border/80 p-5 sm:p-6 shadow-xs flex flex-col justify-between overflow-hidden min-h-[380px] sm:min-h-[420px]">
                 {/* Cabecera del Mapa en Vivo */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-border/70">
                   <div className="flex items-center gap-2">
@@ -52,89 +52,160 @@ export function ShippingSection() {
                   </span>
                 </div>
 
-                {/* Lienzo del Mapa con Trazado Callejero y Recorrido Animado */}
-                <div className="relative w-full flex-1 my-3 sm:my-4 rounded-[18px] bg-white dark:bg-surface border border-border/60 overflow-hidden min-h-[220px]">
-                  {/* Cuadrícula Callejera de Fondo */}
+                {/* Lienzo del Mapa con Bloques Urbanos, Agua, Avenidas y Trazado */}
+                <div className="relative w-full flex-1 my-3 sm:my-4 rounded-[18px] bg-[#edf0f5] dark:bg-[#181b22] border border-border/70 overflow-hidden min-h-[240px] sm:min-h-[260px]">
                   <svg
-                    viewBox="0 0 340 220"
-                    className="absolute inset-0 w-full h-full stroke-gray-200 dark:stroke-white/10 fill-none"
-                    strokeWidth="2.5"
+                    viewBox="0 0 400 250"
+                    className="absolute inset-0 w-full h-full"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
-                    <path d="M 0,35 Q 80,45 200,30 T 340,40" />
-                    <path d="M 0,85 Q 90,80 180,95 T 340,90" />
-                    <path d="M 0,140 Q 110,135 220,150 T 340,140" />
-                    <path d="M 0,195 Q 120,190 240,205 T 340,195" />
-                    <path d="M 45,0 Q 55,70 45,220" />
-                    <path d="M 120,0 Q 130,90 125,220" />
-                    <path d="M 200,0 Q 190,80 205,220" />
-                    <path d="M 280,0 Q 290,90 285,220" />
-                  </svg>
+                    {/* Fondo base urbano */}
+                    <rect width="400" height="250" fill="#edf0f5" className="dark:fill-[#181b22]" />
 
-                  {/* Trayectoria Animada del Envío */}
-                  <svg
-                    viewBox="0 0 340 220"
-                    className="absolute inset-0 w-full h-full fill-none overflow-visible"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <motion.path
-                      d="M 45,45 L 45,95 L 120,90 L 155,125 L 200,120 L 240,165"
-                      stroke="#0d7a53"
+                    {/* Costa / Río en lateral superior derecho */}
+                    <path
+                      d="M 285,0 Q 315,60 335,120 T 385,250 L 400,250 L 400,0 Z"
+                      fill="#d7e5f2"
+                      className="dark:fill-[#1e293b]/70"
+                    />
+                    <path
+                      d="M 285,0 Q 315,60 335,120 T 385,250"
+                      stroke="#b8d4ed"
+                      className="dark:stroke-[#334155]"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+
+                    {/* Manzanas urbanas residenciales */}
+                    <rect x="15" y="15" width="60" height="40" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="85" y="15" width="70" height="40" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="165" y="15" width="80" height="40" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+
+                    {/* Parque o zona verde */}
+                    <rect x="15" y="65" width="45" height="55" rx="8" fill="#dbe7dd" className="dark:fill-[#1e3328]" />
+                    <path d="M 18,110 Q 35,90 55,115" stroke="#c8dec8" className="dark:stroke-[#274837]" strokeWidth="1.5" fill="none" />
+
+                    {/* Manzanas centrales */}
+                    <rect x="70" y="65" width="55" height="55" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="135" y="65" width="65" height="55" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="210" y="65" width="60" height="45" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+
+                    {/* Manzanas inferiores */}
+                    <rect x="15" y="130" width="75" height="50" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="100" y="130" width="80" height="50" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="190" y="120" width="70" height="60" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+
+                    {/* Manzanas sur */}
+                    <rect x="15" y="190" width="110" height="48" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="135" y="190" width="90" height="48" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="235" y="190" width="60" height="48" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+
+                    {/* Red de calles secundarias (blancas en claro, sutiles en oscuro) */}
+                    <g stroke="#ffffff" className="dark:stroke-[#2d3342]" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="0" y1="60" x2="285" y2="60" />
+                      <line x1="0" y1="125" x2="335" y2="125" />
+                      <line x1="0" y1="185" x2="355" y2="185" />
+                      <line x1="65" y1="0" x2="65" y2="250" />
+                      <line x1="130" y1="0" x2="130" y2="250" />
+                      <line x1="205" y1="0" x2="205" y2="250" />
+                      <line x1="275" y1="0" x2="275" y2="250" />
+                    </g>
+
+                    {/* Avenidas principales y autopista ribereña */}
+                    <path
+                      d="M 275,0 Q 300,70 320,135 T 370,250"
+                      stroke="#cbd5e1"
+                      className="dark:stroke-[#334155]"
+                      strokeWidth="7"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M 275,0 Q 300,70 320,135 T 370,250"
+                      stroke="#f8fafc"
+                      className="dark:stroke-[#1e293b]"
                       strokeWidth="4"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+
+                    {/* Avenida Diagonal */}
+                    <path
+                      d="M 0,210 L 90,160 L 205,95 L 300,45"
+                      stroke="#cbd5e1"
+                      className="dark:stroke-[#334155]"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M 0,210 L 90,160 L 205,95 L 300,45"
+                      stroke="#f8fafc"
+                      className="dark:stroke-[#1e293b]"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+
+                    {/* Rotonda */}
+                    <circle cx="205" cy="95" r="10" fill="#edf0f5" className="dark:fill-[#181b22]" stroke="#cbd5e1" strokeWidth="3" />
+                    <circle cx="205" cy="95" r="5" fill="#dbe7dd" className="dark:fill-[#1e3328]" />
+
+                    {/* Etiquetas Cartográficas Discretas */}
+                    <text x="22" y="80" fill="#94a3b8" fontSize="7.5" fontWeight="600" letterSpacing="0.05em">PARQUE NORTE</text>
+                    <text x="315" y="40" fill="#64748b" fontSize="7.5" fontWeight="600" letterSpacing="0.05em">COSTANERA</text>
+                    <text x="140" y="55" fill="#94a3b8" fontSize="7" fontWeight="500">AV. DEL LIBERTADOR</text>
+                    <text x="145" y="180" fill="#94a3b8" fontSize="7" fontWeight="500">AV. SANTA FE</text>
+
+                    {/* Trayectoria Dinámica del Envío (Ruta GPS en Verde Esmeralda) */}
+                    <motion.path
+                      d="M 65,40 L 65,95 L 130,95 L 170,125 L 205,125 L 235,160 L 275,160"
+                      stroke="#0d7a53"
+                      strokeWidth="4.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       initial={{ pathLength: reducedMotion ? 1 : 0 }}
                       whileInView={{ pathLength: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.6, ease: "easeInOut" }}
+                      transition={{ duration: 1.8, ease: "easeInOut" }}
                     />
                   </svg>
 
                   {/* Nodo Inicial: Depósito Central */}
                   <div
-                    className="absolute left-[13.2%] top-[20.4%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
-                    title="Depósito Rial Electrónica"
+                    className="absolute left-[16.25%] top-[16%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
+                    title="Depósito Central Rial Electrónica"
                   >
-                    <div className="size-8 sm:size-9 rounded-xl bg-[#171d25] text-white flex items-center justify-center shadow-md">
+                    <div className="size-8 sm:size-9 rounded-xl bg-[#171d25] text-white flex items-center justify-center shadow-lg border border-white/20">
                       <Package className="size-4" aria-hidden="true" />
                     </div>
                   </div>
 
                   {/* Nodo Final: Domicilio con Efecto Radar Ping */}
                   <div
-                    className="absolute left-[70.5%] top-[75%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
+                    className="absolute left-[68.75%] top-[64%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
                     title="Destino del comprador"
                   >
                     {!reducedMotion && (
                       <span
-                        className="absolute size-10 sm:size-11 rounded-full bg-emerald-500/30 animate-ping pointer-events-none"
+                        className="absolute size-10 sm:size-12 rounded-full bg-emerald-500/35 animate-ping pointer-events-none"
                         aria-hidden="true"
                       />
                     )}
-                    <div className="relative size-8 sm:size-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
-                      <MapPin className="size-4.5" aria-hidden="true" />
+                    <div className="relative size-8 sm:size-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-lg border border-white/20">
+                      <MapPin className="size-4 sm:size-4.5" aria-hidden="true" />
                     </div>
-                  </div>
-
-                  {/* Badge de Flota Logística Flotante */}
-                  <div className="absolute bottom-3 left-3 bg-white/95 dark:bg-surface/95 backdrop-blur-sm border border-border/80 px-2.5 sm:px-3 py-1.5 rounded-xl shadow-xs flex items-center gap-2">
-                    <Truck className="size-3.5 text-emerald-600 dark:text-emerald-500" aria-hidden="true" />
-                    <span className="text-[11px] font-semibold text-foreground">
-                      Despacho vía Andreani
-                    </span>
                   </div>
                 </div>
 
                 {/* Pie del Mapa con Código de Tracking */}
-                <div className="flex items-center justify-between pt-2 border-t border-border/70">
+                <div className="flex items-center justify-between pt-2.5 border-t border-border/70">
                   <span className="text-xs font-medium text-muted-foreground">
                     Seguimiento: <strong className="text-foreground font-semibold">AR-9482103</strong>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
-                    <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
-                    A tiempo
+                  <span className="text-xs font-medium text-muted-foreground">
+                    Entrega asegurada
                   </span>
                 </div>
               </div>

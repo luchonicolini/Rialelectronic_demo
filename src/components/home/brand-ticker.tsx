@@ -13,18 +13,18 @@ interface BrandItem {
 }
 
 const BRANDS: BrandItem[] = [
-  { name: "Apple", src: "/images/brands/apple.svg", width: 48, height: 48, className: "h-9 sm:h-10 w-auto" },
-  { name: "Sony", src: "/images/brands/sony.svg", width: 190, height: 46, className: "h-6 sm:h-7 w-auto" },
-  { name: "Samsung", src: "/images/brands/samsung.svg", width: 168, height: 28, className: "h-5 sm:h-6 w-auto" },
-  { name: "PlayStation", src: "/images/brands/playstation.svg", width: 52, height: 44, className: "h-8 sm:h-9 w-auto" },
-  { name: "Nintendo", src: "/images/brands/nintendo.svg", width: 150, height: 40, className: "h-6 sm:h-7 w-auto" },
-  { name: "Xiaomi", src: "/images/brands/xiaomi.svg", width: 52, height: 52, className: "h-8 sm:h-9 w-auto" },
-  { name: "JBL", src: "/images/brands/jbl.svg", width: 100, height: 42, className: "h-8 sm:h-9 w-auto" },
-  { name: "DJI", src: "/images/brands/dji.svg", width: 114, height: 42, className: "h-6 sm:h-7 w-auto" },
-  { name: "ASUS", src: "/images/brands/asus.svg", width: 190, height: 54, className: "h-8 sm:h-9 w-auto" },
-  { name: "Motorola", src: "/images/brands/motorola.svg", width: 52, height: 52, className: "h-8 sm:h-9 w-auto" },
-  { name: "Garmin", src: "/images/brands/garmin.svg", width: 132, height: 38, className: "h-6 sm:h-7 w-auto" },
-  { name: "Google", src: "/images/brands/google.svg", width: 120, height: 38, className: "h-6 sm:h-7 w-auto" },
+  { name: "Apple", src: "/images/brands/apple.svg", width: 48, height: 48, className: "h-7 sm:h-8 w-auto" },
+  { name: "Sony", src: "/images/brands/sony.svg", width: 130, height: 24, className: "h-5 sm:h-6 w-auto" },
+  { name: "Samsung", src: "/images/brands/samsung.svg", width: 144, height: 24, className: "h-5 sm:h-6 w-auto" },
+  { name: "PlayStation", src: "/images/brands/playstation.svg", width: 52, height: 40, className: "h-7 sm:h-8 w-auto" },
+  { name: "Nintendo", src: "/images/brands/nintendo.svg", width: 155, height: 40, className: "h-5 sm:h-6 w-auto" },
+  { name: "Xiaomi", src: "/images/brands/xiaomi.svg", width: 48, height: 48, className: "h-7 sm:h-8 w-auto" },
+  { name: "JBL", src: "/images/brands/jbl.svg", width: 70, height: 40, className: "h-6 sm:h-7 w-auto" },
+  { name: "DJI", src: "/images/brands/dji.svg", width: 67, height: 40, className: "h-6 sm:h-7 w-auto" },
+  { name: "ASUS", src: "/images/brands/asus.svg", width: 110, height: 24, className: "h-5 sm:h-6 w-auto" },
+  { name: "Motorola", src: "/images/brands/motorola.svg", width: 48, height: 48, className: "h-7 sm:h-8 w-auto" },
+  { name: "Garmin", src: "/images/brands/garmin.svg", width: 88, height: 24, className: "h-5 sm:h-6 w-auto" },
+  { name: "Google", src: "/images/brands/google.svg", width: 48, height: 48, className: "h-7 sm:h-8 w-auto" },
 ];
 
 export function BrandTicker() {

@@ -48,14 +48,14 @@ export function WholesaleBanner() {
                 <div>
                   <h2
                     id="wholesale-heading"
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.15]"
+                    className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.12]"
                   >
                     Abastecimiento comercial{" "}
                     <span className="font-serif italic font-normal text-[1.08em] tracking-normal text-foreground">
                       para tu negocio.
                     </span>
                   </h2>
-                  <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
+                  <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
                     Precios preferenciales por volumen en USDT y pesos, equipos en caja sellada de fábrica,
                     despacho asegurado bulto cerrado a todo el país y atención ejecutiva directa vía WhatsApp.
                   </p>

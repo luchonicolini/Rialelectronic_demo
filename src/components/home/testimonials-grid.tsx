@@ -79,11 +79,11 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
           <Star key={index} className="size-3.5 fill-current text-white" aria-hidden="true" />
         ))}
       </div>
-      <blockquote className="my-2 sm:my-4 text-base sm:text-[17px] leading-relaxed font-normal text-white/95">
+      <blockquote className="my-2 sm:my-4 text-sm sm:text-base leading-relaxed font-normal text-white/95">
         “{item.comment}”
       </blockquote>
-      <div className="mt-auto pt-6 flex flex-col gap-1 text-xs sm:text-[13px] text-[#c3c5c9]">
-        <strong className="text-sm sm:text-[15px] font-semibold text-white">
+      <div className="mt-auto pt-6 flex flex-col gap-1 text-xs sm:text-sm text-[#c3c5c9]">
+        <strong className="text-sm sm:text-base font-semibold text-white">
           {item.name}
         </strong>
         <span>{item.product}</span>
@@ -152,14 +152,14 @@ export function TestimonialsGrid() {
             <div>
               <h2
                 id="testimonials-heading"
-                className="max-w-xl text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight"
+                className="max-w-xl text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-white leading-[1.12]"
               >
                 Confianza construida en cada{" "}
-                <span className="font-serif italic font-normal tracking-normal text-white">
+                <span className="font-serif italic font-normal text-[1.08em] tracking-normal text-white">
                   entrega.
                 </span>
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-[#c3c5c9]">
+              <p className="mt-2.5 text-sm sm:text-base text-[#c3c5c9] leading-relaxed max-w-xl">
                 Experiencias reales de quienes eligen Rial Electrónica.
               </p>
             </div>

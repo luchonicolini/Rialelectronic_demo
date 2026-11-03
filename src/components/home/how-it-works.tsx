@@ -28,13 +28,13 @@ export function HowItWorks() {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 xl:px-14">
         {/* Encabezado Editorial Responsive */}
         <div className="mb-8 max-w-2xl sm:mb-12">
-          <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-[42px]">
+          <h2 className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.12]">
             Cómo comprar con{" "}
-            <span className="font-serif italic font-normal tracking-normal text-foreground">
+            <span className="font-serif italic font-normal text-[1.08em] tracking-normal text-foreground">
               tranquilidad.
             </span>
           </h2>
-          <p className="mt-1.5 text-sm font-normal text-muted-foreground/90 sm:mt-2 sm:text-base lg:text-lg">
+          <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
             Certezas operativas claras y atención personalizada antes de transferir.
           </p>
         </div>

@@ -22,14 +22,14 @@ export function ShippingSection() {
             <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] items-end gap-5 lg:gap-12 pb-7 lg:pb-9 border-b border-border/70">
               <h2
                 id="shipping-title"
-                className="text-2xl sm:text-3xl lg:text-[42px] font-extrabold tracking-tight text-foreground leading-[1.08] text-balance"
+                className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.12] text-balance"
               >
                 Recibilo sin{" "}
-                <span className="font-serif italic font-normal tracking-normal text-foreground">
+                <span className="font-serif italic font-normal text-[1.08em] tracking-normal text-foreground">
                   complicaciones.
                 </span>
               </h2>
-              <p className="text-muted-foreground text-sm sm:text-[0.95rem] leading-[1.75] max-w-[52ch] lg:max-w-[36ch] lg:justify-self-end text-pretty">
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-[52ch] lg:max-w-[38ch] lg:justify-self-end text-pretty">
                 Elegí recibirlo en tu domicilio o coordinar un retiro. Confirmamos disponibilidad,
                 costo y plazo con vos antes de avanzar.
               </p>
@@ -219,10 +219,10 @@ export function ShippingSection() {
                     aria-hidden="true"
                   />
                   <div className="grid gap-1">
-                    <strong className="text-[0.9375rem] font-semibold text-foreground">
+                    <strong className="text-sm sm:text-base font-semibold text-foreground">
                       Pedido confirmado
                     </strong>
-                    <span className="text-xs sm:text-[0.8125rem] text-muted-foreground leading-[1.55] text-pretty">
+                    <span className="text-xs sm:text-sm text-muted-foreground leading-relaxed text-pretty">
                       Stock, importe y condiciones acordados por WhatsApp.
                     </span>
                   </div>
@@ -236,10 +236,10 @@ export function ShippingSection() {
                       <Truck className="size-[18px]" aria-hidden="true" />
                     </span>
                     <div>
-                      <h3 className="text-[1.0625rem] font-bold tracking-tight text-foreground">
+                      <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground">
                         Envío a tu domicilio
                       </h3>
-                      <p className="mt-1.5 max-w-[48ch] text-sm text-muted-foreground leading-[1.7] text-pretty">
+                      <p className="mt-1.5 max-w-[48ch] text-xs sm:text-sm text-muted-foreground leading-relaxed text-pretty">
                         A todo el país. El costo y el plazo se confirman según el producto y el
                         destino antes de despachar.
                       </p>
@@ -255,10 +255,10 @@ export function ShippingSection() {
                       <MapPin className="size-[18px]" aria-hidden="true" />
                     </span>
                     <div>
-                      <h3 className="text-[1.0625rem] font-bold tracking-tight text-foreground">
+                      <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground">
                         Retiro coordinado
                       </h3>
-                      <p className="mt-1.5 max-w-[48ch] text-sm text-muted-foreground leading-[1.7] text-pretty">
+                      <p className="mt-1.5 max-w-[48ch] text-xs sm:text-sm text-muted-foreground leading-relaxed text-pretty">
                         Acordamos el punto de encuentro y el horario antes de que te acerques.
                       </p>
                     </div>
@@ -266,7 +266,7 @@ export function ShippingSection() {
                 </div>
 
                 {/* Nota de soporte */}
-                <div className="flex items-center gap-2.5 mt-3.5 text-xs sm:text-[0.8125rem] text-muted-foreground leading-[1.55]">
+                <div className="flex items-center gap-2.5 mt-3.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   <MessageCircle
                     className="size-4 shrink-0 text-emerald-600 dark:text-emerald-500"
                     aria-hidden="true"

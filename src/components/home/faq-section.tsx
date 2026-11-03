@@ -59,14 +59,14 @@ export function FaqSection({ className = "" }: { className?: string }) {
           <BlurReveal blur={10} yOffset={20} duration={0.7} className="lg:sticky lg:top-28">
             <h2
               id="faq-title"
-              className="text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight text-foreground leading-[1.08]"
+              className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.12]"
             >
               Preguntas{" "}
-              <span className="font-serif italic font-normal text-[1.15em] tracking-[-0.01em]">
+              <span className="font-serif italic font-normal text-[1.08em] tracking-normal">
                 frecuentes.
               </span>
             </h2>
-            <p className="text-muted-foreground text-sm sm:text-base mt-4 max-w-sm leading-relaxed font-normal">
+            <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-sm">
               Lo que más nos consultan antes de comprar. Si te queda alguna duda, escribinos de forma directa.
             </p>
 
@@ -99,7 +99,7 @@ export function FaqSection({ className = "" }: { className?: string }) {
                       aria-controls={panelId}
                       onClick={() => toggle(i)}
                     >
-                      <span className="text-[15.5px] font-semibold tracking-[-0.01em] text-foreground leading-[1.35] flex-1 pr-4">
+                      <span className="text-sm sm:text-base font-semibold tracking-tight text-foreground leading-snug flex-1 pr-4">
                         {faq.question}
                       </span>
                       <span
@@ -122,7 +122,7 @@ export function FaqSection({ className = "" }: { className?: string }) {
                       }`}
                     >
                       <div className="overflow-hidden min-h-0">
-                        <div className="pb-5 sm:pb-[22px] pr-6 sm:pr-12 text-[14.5px] leading-[1.7] text-muted-foreground">
+                        <div className="pb-5 sm:pb-6 pr-6 sm:pr-12 text-sm sm:text-base leading-relaxed text-muted-foreground">
                           <p>{faq.answer}</p>
                         </div>
                       </div>

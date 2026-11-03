@@ -23,10 +23,10 @@ export function CategoriesGrid() {
             <div>
               <h2
                 id="categories-heading"
-                className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[-0.035em] text-foreground leading-tight"
+                className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.12]"
               >
                 Elegir por{" "}
-                <span className="font-serif italic font-normal text-[1.12em] tracking-[-0.01em]">
+                <span className="font-serif italic font-normal text-[1.08em] tracking-normal">
                   categoría.
                 </span>
               </h2>
@@ -79,10 +79,10 @@ export function CategoriesGrid() {
 
                 {/* Título y Subtítulo */}
                 <div className="mt-2.5 sm:mt-3 flex flex-col items-center">
-                  <h3 className="text-[0.88rem] sm:text-[0.98rem] font-bold text-foreground tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors leading-tight">
+                  <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors leading-tight">
                     {category.name}
                   </h3>
-                  <p className="text-[0.7rem] sm:text-[0.76rem] text-muted-foreground font-medium mt-0.5 line-clamp-1">
+                  <p className="text-xs text-muted-foreground font-medium mt-0.5 line-clamp-1">
                     {category.subtitle}
                   </p>
                 </div>

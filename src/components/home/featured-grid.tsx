@@ -22,14 +22,14 @@ export function FeaturedGrid() {
           <div className="mb-8 max-w-2xl sm:mb-10">
             <h2
               id="featured-heading"
-              className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-[42px]"
+              className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[40px] font-extrabold tracking-[-0.03em] text-foreground leading-[1.12]"
             >
               Destacados y{" "}
-              <span className="font-serif italic font-normal tracking-normal text-foreground">
+              <span className="font-serif italic font-normal text-[1.08em] tracking-normal text-foreground">
                 oportunidades.
               </span>
             </h2>
-            <p className="mt-1.5 text-sm font-normal text-muted-foreground/90 sm:mt-2 sm:text-base lg:text-lg">
+            <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
               Equipos seleccionados listos para consultar y coordinar.
             </p>
           </div>

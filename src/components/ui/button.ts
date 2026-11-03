@@ -1,7 +1,7 @@
 export type ButtonVariant = "primary" | "secondary";
 
 const base =
-  "inline-flex h-11 items-center justify-center gap-2 rounded-control px-5 text-sm font-medium transition-colors duration-[var(--duration-feedback)]";
+  "inline-flex h-12 items-center justify-center gap-2 rounded-control px-6 text-sm font-medium transition-colors duration-[var(--duration-feedback)]";
 
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-accent text-accent-contrast hover:bg-accent/90",

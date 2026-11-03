@@ -5,58 +5,57 @@ import { whatsappUrl } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section aria-labelledby="hero-title" className="border-b border-border">
-      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:pb-24 lg:pt-20 xl:px-14">
-        <div className="flex flex-col justify-center lg:col-span-6">
+    <section
+      aria-labelledby="hero-title"
+      className="overflow-hidden border-b border-border"
+    >
+      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-4 pb-14 pt-8 sm:px-6 lg:min-h-[calc(100dvh-5rem)] lg:grid-cols-12 lg:items-center lg:gap-x-8 lg:px-10 lg:pb-20 lg:pt-16 xl:px-14">
+        <div className="relative z-10 flex flex-col justify-center lg:col-span-7 lg:pr-12">
           <h1
             id="hero-title"
-            className="max-w-[13ch] text-display font-semibold tracking-[-0.035em] text-balance"
+            className="text-display font-semibold tracking-[-0.03em]"
           >
-            La tecnología que buscás.{" "}
-            <span className="underline decoration-[0.045em] underline-offset-[0.12em]">
-              Más cerca.
-            </span>
+            <span className="block">La tecnología</span>
+            <span className="block">que buscás.</span>
+            <span className="block">Más cerca.</span>
           </h1>
 
-          <p className="mt-6 max-w-[42ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Explorá nuestro catálogo y consultanos directamente por WhatsApp.
-            La consulta se coordina con el negocio.
+          <p className="mt-6 max-w-[44ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Explorá el catálogo y consultanos por WhatsApp. La operación se
+            coordina directamente con el negocio.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 sm:gap-x-7">
             <a
               href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonStyles("primary")}
             >
-              Consultar por WhatsApp
+              Pedir cotización
               <ArrowUpRightIcon className="size-4" />
               <span className="sr-only">(se abre en una pestaña nueva)</span>
             </a>
-            <Link href="/catalogo" className={buttonStyles("secondary")}>
-              Explorar catálogo
+            <Link
+              href="/catalogo"
+              className="inline-flex h-12 items-center text-sm font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              Ver catálogo
             </Link>
           </div>
 
-          <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-            Demo no oficial. No procesa pagos ni confirma stock.
+          <p className="mt-6 max-w-[52ch] text-xs leading-relaxed text-muted-foreground">
+            Se abre WhatsApp con el mensaje listo para enviar. Demo no oficial:
+            no procesa pagos ni confirma stock.
           </p>
         </div>
 
-        <div className="lg:col-span-6">
-          <div className="flex aspect-[4/5] w-full flex-col justify-between overflow-hidden rounded-card border border-border bg-elevated p-5 sm:aspect-[16/10] lg:aspect-square lg:p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Imagen 01 · pendiente
-            </p>
-
-            <div className="max-w-[26ch]">
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Fotografía de producto pendiente de licencia y aprobación.
-              </p>
-              <div className="mt-4 h-px w-full bg-border" />
-            </div>
-          </div>
+        <div className="lg:col-span-5 lg:col-start-8 lg:-mr-10 lg:-ml-10 xl:-mr-14">
+          <figure className="flex aspect-[4/3] w-full flex-col justify-end bg-elevated p-5 sm:aspect-[2/1] lg:aspect-square lg:p-6">
+            <figcaption className="border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
+              Fotografía de producto pendiente de licencia y aprobación.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

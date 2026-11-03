@@ -43,14 +43,9 @@ export function SiteHeader() {
         <Link
           href="/"
           onClick={() => setPanel(null)}
-          className="flex shrink-0 items-baseline gap-2"
+          className="shrink-0 text-[15px] font-semibold tracking-[-0.015em]"
         >
-          <span className="text-[15px] font-semibold tracking-[-0.015em]">
-            Rial Electrónica
-          </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-            demo
-          </span>
+          Rial Electrónica
         </Link>
 
         <HeaderNav className="hidden lg:block" />
@@ -58,9 +53,9 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
           <span
             title="Cotización USDT de ejemplo, no verificada"
-            className="hidden font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground xl:inline"
+            className="hidden text-xs text-muted-foreground xl:inline"
           >
-            USDT · demo
+            USDT · valor de ejemplo
           </span>
 
           <button
@@ -130,9 +125,9 @@ export function SiteHeader() {
             <div className="mt-4 flex items-center justify-between gap-4">
               <span
                 title="Cotización USDT de ejemplo, no verificada"
-                className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground"
+                className="text-xs text-muted-foreground"
               >
-                USDT · demo
+                USDT · valor de ejemplo
               </span>
               <span className="text-xs text-muted-foreground">
                 Propuesta no oficial

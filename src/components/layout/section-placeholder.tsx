@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
+import { buttonStyles } from "@/components/ui/button";
 
 type SectionPlaceholderProps = {
   title: string;
@@ -17,10 +18,7 @@ export function SectionPlaceholder({
         id="contenido"
         className="mx-auto w-full max-w-[1440px] px-4 py-16 sm:px-6 lg:px-10 xl:px-14"
       >
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
-          Sección en preparación
-        </p>
-        <h1 className="mt-3 max-w-2xl text-h1 font-semibold tracking-tight">
+        <h1 className="max-w-2xl text-h1 font-semibold tracking-[-0.02em]">
           {title}
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
@@ -28,7 +26,7 @@ export function SectionPlaceholder({
         </p>
         <Link
           href="/"
-          className="mt-8 inline-flex h-10 items-center rounded-control border border-border px-4 text-sm font-medium text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated"
+          className={`mt-8 ${buttonStyles("secondary")}`}
         >
           Volver al inicio
         </Link>

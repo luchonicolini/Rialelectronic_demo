@@ -11,7 +11,6 @@ import {
   MenuIcon,
   SearchIcon,
 } from "@/components/ui/icons";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { whatsappUrl } from "@/lib/site";
 
 type Panel = "search" | "menu" | null;
@@ -38,7 +37,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="border-b border-border bg-background">
+    <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur-md transition-colors">
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center gap-4 px-3 sm:px-6 lg:h-20 lg:gap-10 lg:px-10 xl:px-14">
         <Link
           href="/"
@@ -73,10 +72,6 @@ export function SiteHeader() {
           <Link href="/lista" aria-label="Lista de consulta" className={iconButton}>
             <ListIcon className="size-5" />
           </Link>
-
-          <div className="hidden min-[360px]:block">
-            <ThemeToggle />
-          </div>
 
           <a
             href={whatsappUrl()}
@@ -117,11 +112,6 @@ export function SiteHeader() {
               orientation="vertical"
               onNavigate={() => setPanel(null)}
             />
-
-            <div className="mt-4 flex items-center justify-between gap-4 min-[360px]:hidden">
-              <span className="text-sm text-muted-foreground">Tema</span>
-              <ThemeToggle />
-            </div>
 
             <div className="mt-4 flex items-center justify-between gap-4">
               <span

@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Search, SlidersHorizontal, ArrowLeft } from "lucide-react";
+import { Search, SlidersHorizontal, ArrowLeft } from "lucide-react";
 import { MOCK_FEATURED_PRODUCTS, MOCK_CATEGORIES, MOCK_BRANDS } from "@/data/mock-catalog";
-import { whatsappUrl } from "@/lib/site";
+import { ProductCard } from "@/components/commerce/product-card";
 
 export function CatalogBrowser() {
   const [selectedCategory, setSelectedCategory] = useState<string>("todos");
@@ -153,63 +152,9 @@ export function CatalogBrowser() {
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-              {filteredProducts.map((prod) => {
-                const waLink = whatsappUrl(
-                  `¡Hola Rial Electrónica! Quiero consultar disponibilidad del producto: ${prod.name}.`
-                );
-
-                return (
-                  <article
-                    key={prod.id}
-                    className="flex flex-col rounded-card border border-border bg-surface p-5 transition-colors hover:border-[var(--accent)]"
-                  >
-                    <div className="relative aspect-square w-full overflow-hidden rounded-control bg-elevated/50 p-4 mb-4 flex items-center justify-center">
-                      <Image
-                        src={prod.image}
-                        alt={prod.name}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-contain p-2"
-                      />
-                    </div>
-
-                    <div className="flex flex-1 flex-col">
-                      <span className="text-xs font-medium text-muted-foreground">
-                        {prod.brand} · {prod.category}
-                      </span>
-                      <h3 className="mt-1 text-base font-semibold text-foreground line-clamp-2">
-                        {prod.name}
-                      </h3>
-
-                      <div className="mt-auto border-t border-border pt-4 flex items-end justify-between gap-2">
-                        <div>
-                          <span className="block text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-                            Referencia
-                          </span>
-                          <strong className="text-base font-bold text-foreground">
-                            US$ {prod.priceUsd.toLocaleString("en-US")}
-                          </strong>
-                          {prod.priceUsdt && (
-                            <span className="block text-xs text-muted-foreground">
-                              {prod.priceUsdt} USDT
-                            </span>
-                          )}
-                        </div>
-
-                        <a
-                          href={waLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex h-9 items-center gap-1.5 rounded-control bg-[var(--accent)] px-3 text-xs font-medium text-white transition-opacity hover:opacity-95"
-                        >
-                          <MessageCircle className="size-3.5" />
-                          Cotizar
-                        </a>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
+              {filteredProducts.map((prod) => (
+                <ProductCard key={prod.id} product={prod} />
+              ))}
             </div>
           )}
         </div>

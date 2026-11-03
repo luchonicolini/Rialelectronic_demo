@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CatalogoPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-[var(--accent-contrast)]">
       <SiteHeader />
       <main id="contenido" className="flex-1">
         <CatalogBrowser />

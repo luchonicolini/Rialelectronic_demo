@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-[var(--accent-contrast)]">
       <SiteHeader />
       <main id="contenido" className="flex-1 py-16 sm:py-20">
         <div className="mx-auto max-w-[960px] px-4 sm:px-6 lg:px-10">
@@ -47,7 +47,7 @@ export default function ContactoPage() {
                 href={whatsappUrl("¡Hola Rial Electrónica! Quiero comunicarme con un asesor comercial.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex h-11 w-full items-center justify-center gap-2 rounded-control bg-[var(--accent)] text-sm font-medium text-white transition-opacity hover:opacity-95"
+                className="mt-8 inline-flex h-11 w-full items-center justify-center gap-2 rounded-control bg-[var(--accent)] text-sm font-medium text-[var(--accent-contrast)] transition-opacity hover:opacity-95"
               >
                 Abrir chat de WhatsApp
                 <ArrowUpRight className="size-4" />

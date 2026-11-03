@@ -1,45 +1,30 @@
 /*
- * Tokens semánticos — DESIGN.md v1
- * El azul es funcional (acción, foco, selección), no decorativo.
- * Valores sujetos a verificación WCAG 2.2 AA antes de publicar.
+ * Tokens semánticos — Design System Editorial Tech (Modo Claro Exclusivo)
+ * Paleta editorial monocromática y sobria.
+ * Canvas luminoso (#f8fafc), superficies puras (#ffffff) y acento negro grisáceo (#171d25) estilo Apple / Linear / Leica.
  */
 
 :root {
   color-scheme: light;
 
-  --background: #ffffff;
-  --surface: #ffffff;
-  --elevated: #f8fafc;
-  --border: #e2e8f0;
+  /* Canvas y Superficies */
+  --background: #f8fafc; /* Slate 50: Canvas suave, limpio y moderno */
+  --surface: #ffffff; /* Blanco puro: Tarjetas, componentes y superficies elevadas */
+  --elevated: #f1f5f9; /* Slate 100: Badges, buscador, hover states y chips */
+  --border: #e2e8f0; /* Slate 200: Bordes nítidos y delicados de 1px */
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
+  /* Jerarquía Tipográfica */
+  --text-primary: #0f172a; /* Slate 900: Máxima legibilidad y contraste editorial */
+  --text-secondary: #526071; /* Slate 600 balanceado: Texto secundario legible WCAG AA */
 
-  --accent: #086cd9;
+  /* Acentos y Acciones */
+  --accent: #171d25; /* Negro grisáceo profundo (charcoal / grafito editorial) */
   --accent-contrast: #ffffff;
 
-  --success: #15966a;
-  --warning: #d99618;
-  --error: #d84a54;
+  /* Estados Funcionales */
+  --success: #0d7a53; /* Esmeralda sobrio para cotizaciones y stock confirmado */
+  --warning: #d97706; /* Ámbar 600 */
+  --error: #dc2626; /* Rojo 600 */
 
   --duration-feedback: 160ms;
-}
-
-.dark {
-  color-scheme: dark;
-
-  --background: #0b0f14;
-  --surface: #151b23;
-  --elevated: #202833;
-  --border: #34404e;
-
-  --text-primary: #f5f7fa;
-  --text-secondary: #a7b2c0;
-
-  --accent: #1684f8;
-  --accent-contrast: #0b0f14;
-
-  --success: #15966a;
-  --warning: #d99618;
-  --error: #d84a54;
 }

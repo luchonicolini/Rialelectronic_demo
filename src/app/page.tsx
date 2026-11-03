@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { HeroShowcase } from "@/components/home/hero-showcase";
+import { BrandTicker } from "@/components/home/brand-ticker";
 import { CategoriesGrid } from "@/components/home/categories-grid";
 import { FeaturedGrid } from "@/components/home/featured-grid";
 import { WholesaleBanner } from "@/components/home/wholesale-banner";
@@ -16,6 +17,7 @@ export default function Home() {
       <SiteHeader />
       <main id="contenido" className="flex-1">
         <HeroShowcase />
+        <BrandTicker />
         <CategoriesGrid />
         <FeaturedGrid />
         <WholesaleBanner />

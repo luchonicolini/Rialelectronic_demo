@@ -74,6 +74,23 @@
   font-feature-settings: "tnum" 1;
 }
 
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 35s linear infinite;
+}
+
+.pause-on-hover:hover .animate-infinite-scroll {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

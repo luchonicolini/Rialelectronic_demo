@@ -27,10 +27,6 @@ export function SiteHeader() {
       if (event.key === "Escape") {
         setPanel(null);
       }
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        searchInputRef.current?.focus();
-      }
     }
 
     document.addEventListener("keydown", onKeyDown);
@@ -66,19 +62,16 @@ export function SiteHeader() {
           action="/catalogo"
           method="GET"
           role="search"
-          className="relative hidden md:flex items-center flex-1 max-w-[220px] lg:max-w-[260px] xl:max-w-[300px] ml-auto lg:ml-2"
+          className="relative hidden md:flex items-center flex-1 max-w-[220px] lg:max-w-[260px] xl:max-w-[300px] ml-auto lg:ml-4"
         >
-          <SearchIcon className="absolute left-3.5 size-3.5 text-muted-foreground pointer-events-none" />
+          <SearchIcon className="absolute left-3.5 size-4 text-muted-foreground pointer-events-none" />
           <input
             ref={searchInputRef}
             type="search"
             name="q"
             placeholder="¿Qué estás buscando?"
-            className="h-9 w-full rounded-full border border-border/80 bg-elevated/60 pl-9 pr-9 text-xs text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:bg-background focus:border-foreground/40 focus:outline-none focus:ring-1 focus:ring-foreground/20"
+            className="h-10 w-full rounded-control border border-border bg-elevated/50 pl-10 pr-3.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors duration-[var(--duration-feedback)] focus:border-foreground focus:bg-surface focus:outline-none focus:ring-1 focus:ring-foreground"
           />
-          <kbd className="absolute right-2.5 hidden xl:inline-flex items-center gap-0.5 rounded border border-border/70 bg-surface px-1.5 py-0.5 text-[9px] font-medium text-muted-foreground select-none">
-            ⌘K
-          </kbd>
         </form>
 
         {/* Acciones del lado derecho */}
@@ -95,22 +88,23 @@ export function SiteHeader() {
             <SearchIcon className="size-4" />
           </button>
 
-          {/* Pill de Cotización USDT de referencia */}
+          {/* Indicador de Cotización USDT de referencia (Tipografía editorial, sin parpadeos) */}
           <div
-            title="Cotización USDT de referencia estimada de mercado (sujeta a confirmación en WhatsApp)"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-elevated/60 px-3 py-1.5 text-[11px] font-semibold text-foreground tracking-tight select-none"
+            title="Cotización USDT de referencia estimada de mercado"
+            className="hidden sm:inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/40 px-3 text-xs tracking-tight select-none"
           >
-            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" aria-hidden="true" />
-            <span className="tabular-nums">USDT $1.657,71</span>
+            <span className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0" aria-hidden="true" />
+            <span className="font-medium text-muted-foreground">USDT</span>
+            <span className="font-semibold text-foreground tabular-nums">$1.657,71</span>
           </div>
 
           {/* Botón Carrito / Lista de Cotización */}
           <Link
             href="/lista"
             aria-label="Ver carrito de cotizaciones"
-            className="inline-flex h-9 items-center gap-1.5 sm:gap-2 rounded-full border border-border/80 bg-elevated/60 px-3 sm:px-3.5 text-xs font-semibold text-foreground transition-all duration-200 hover:bg-elevated hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-95"
+            className="inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/50 px-3.5 text-xs font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-[0.98]"
           >
-            <ShoppingCart className="size-3.5 text-foreground shrink-0" aria-hidden="true" />
+            <ShoppingCart className="size-4 text-foreground shrink-0" aria-hidden="true" />
             <span>Carrito</span>
           </Link>
 
@@ -143,12 +137,12 @@ export function SiteHeader() {
           <div className="mx-auto w-full max-w-[1440px] px-4 pb-6 pt-3 sm:px-6">
             {/* Buscador en Menú Mobile */}
             <form action="/catalogo" method="GET" className="relative mb-4">
-              <SearchIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground pointer-events-none" />
+              <SearchIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
               <input
                 type="search"
                 name="q"
                 placeholder="¿Qué estás buscando?"
-                className="h-10 w-full rounded-full border border-border bg-elevated/70 pl-9 pr-4 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+                className="h-10 w-full rounded-control border border-border bg-elevated/60 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
               />
             </form>
 
@@ -158,9 +152,10 @@ export function SiteHeader() {
             />
 
             <div className="mt-4 pt-3 border-t border-border/80 flex items-center justify-between gap-4">
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground">
-                <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
-                <span>USDT $1.657,71</span>
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-foreground">
+                <span className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0" aria-hidden="true" />
+                <span className="text-muted-foreground font-medium">USDT</span>
+                <span className="tabular-nums font-semibold">$1.657,71</span>
               </div>
               <span className="text-[11px] text-muted-foreground">
                 Cotización de referencia
@@ -171,7 +166,7 @@ export function SiteHeader() {
               href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-border bg-background text-sm font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated shadow-xs"
+              className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-control border border-border bg-background text-sm font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated"
             >
               Consultar por WhatsApp
               <ArrowUpRightIcon className="size-4 text-muted-foreground" />

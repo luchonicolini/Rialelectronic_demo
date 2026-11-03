@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useSyncExternalStore } from "react";
 
 interface BlurRevealProps {
   children: React.ReactNode;
@@ -13,35 +13,47 @@ interface BlurRevealProps {
   once?: boolean;
 }
 
-// Bandera en memoria para evitar repeticiones durante la misma sesión de React
-let hasEnteredSession = false;
+function subscribeToStorage() {
+  return () => {};
+}
+
+function getSessionSnapshot(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return Boolean(sessionStorage.getItem("rial_entered"));
+  } catch {
+    return false;
+  }
+}
+
+function getServerSnapshot(): boolean {
+  return false;
+}
 
 export function BlurReveal({
   children,
   className = "",
   delay = 0,
-  duration = 0.2,
+  duration = 0.18,
   yOffset = 6,
-  blur = 0,
   once = true,
 }: BlurRevealProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [alreadyEntered, setAlreadyEntered] = useState(hasEnteredSession);
+  const alreadyEntered = useSyncExternalStore(
+    subscribeToStorage,
+    getSessionSnapshot,
+    getServerSnapshot
+  );
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = sessionStorage.getItem("rial_entered");
-      if (stored) {
-        hasEnteredSession = true;
-        setAlreadyEntered(true);
-      } else {
-        sessionStorage.setItem("rial_entered", "1");
-        hasEnteredSession = true;
-      }
+    try {
+      sessionStorage.setItem("rial_entered", "1");
+    } catch {
+      // Ignorar si el almacenamiento está restringido
     }
   }, []);
 
-  // Si el usuario prefiere movimiento reducido o ya navegó en la web, se renderiza inmediatamente sin animación
+  // Si el usuario prefiere movimiento reducido o ya ingresó en esta sesión, se renderiza de inmediato sin animación
   if (shouldReduceMotion || alreadyEntered) {
     return <div className={className}>{children}</div>;
   }

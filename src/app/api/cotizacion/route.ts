@@ -22,7 +22,7 @@ export async function GET() {
       fuente: "DolarApi (Dólar Cripto / USDT)",
       status: "live",
     });
-  } catch (error) {
+  } catch {
     // Respaldo de seguridad en caso de falla externa de red
     return NextResponse.json(
       {

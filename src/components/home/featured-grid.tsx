@@ -37,24 +37,20 @@ export function FeaturedGrid() {
 
         {/* Grilla: 2 columnas en mobile, 4 columnas en desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
-          {displayProducts.map((product, index) => (
-            <BlurReveal key={product.id} delay={index * 0.04} blur={10} yOffset={18}>
-              <ProductCard product={product} />
-            </BlurReveal>
+          {displayProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
         {/* Botón Ver todos los productos */}
         <div className="flex justify-center mt-9 sm:mt-12">
-          <BlurReveal blur={6} yOffset={10}>
-            <Link
-              href="/catalogo"
-              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-[0_8px_20px_rgba(24,25,28,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
-            >
-              Ver todos los productos
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
-          </BlurReveal>
+          <Link
+            href="/catalogo"
+            className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-[0_8px_20px_rgba(24,25,28,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
+          >
+            Ver todos los productos
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>

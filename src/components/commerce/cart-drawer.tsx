@@ -280,7 +280,7 @@ export function CartDrawer() {
                             updateQuantity(item.product.id, item.quantity + 1)
                           }
                           aria-label={`Aumentar cantidad de ${item.product.name}`}
-                          className="flex size-7 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                          className="flex size-7 items-center justify-center text-muted-foreground transition-all duration-150 hover:text-emerald-700 hover:scale-115 active:scale-75 active:text-emerald-700"
                         >
                           <Plus className="size-3" />
                         </button>

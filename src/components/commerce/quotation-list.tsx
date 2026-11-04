@@ -247,7 +247,7 @@ export function QuotationList() {
                       type="button"
                       onClick={() => updateQuantity(product.id, quantity + 1)}
                       aria-label={`Aumentar cantidad de ${product.name}`}
-                      className="flex size-7 items-center justify-center rounded-full text-muted-foreground hover:bg-surface hover:text-foreground transition-colors"
+                      className="flex size-7 items-center justify-center rounded-full text-muted-foreground transition-all duration-150 hover:bg-surface hover:text-emerald-700 hover:scale-115 active:scale-75 active:text-emerald-700"
                     >
                       <Plus className="size-3.5" />
                     </button>

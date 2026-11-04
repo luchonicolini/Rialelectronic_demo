@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Plus, Check } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import type { Product } from "@/data/mock-catalog";
 import { whatsappUrl } from "@/lib/site";
 import { useCart } from "@/context/cart-context";
@@ -16,6 +17,8 @@ interface ProductCardProps {
 export function ProductCard({ product, className = "" }: ProductCardProps) {
   const { addItem, isInCart } = useCart();
   const [justAdded, setJustAdded] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const reducedMotion = useReducedMotion();
   const inCart = isInCart(product.id);
 
   const handleAddToList = (e: React.MouseEvent) => {
@@ -23,6 +26,7 @@ export function ProductCard({ product, className = "" }: ProductCardProps) {
     e.stopPropagation();
     addItem(product);
     setJustAdded(true);
+    setClickCount((c) => c + 1);
     setTimeout(() => setJustAdded(false), 1400);
   };
 
@@ -98,30 +102,91 @@ export function ProductCard({ product, className = "" }: ProductCardProps) {
           )}
         </div>
 
-        {/* Acciones: Botón Secundario (Añadir a lista) + Botón Primario (WhatsApp) */}
+        {/* Acciones: Botón Secundario (Añadir a lista con micro-animación) + Botón Primario (WhatsApp) */}
         <div className="flex items-center gap-1.5 shrink-0">
-          {/* Botón Secundario: Añadir a lista de consulta */}
-          <button
-            type="button"
-            onClick={handleAddToList}
-            aria-label={`Añadir ${product.name} a la lista de cotización`}
-            title={justAdded ? "¡Añadido a la lista!" : inCart ? "Sumar una unidad más" : "Añadir a la lista de consulta"}
-            className={`size-9 sm:size-10 rounded-full border flex items-center justify-center transition-all duration-200 active:scale-95 ${
-              justAdded
-                ? "border-emerald-600 bg-emerald-50 text-emerald-700"
-                : inCart
-                ? "border-emerald-500/50 bg-emerald-50/50 text-emerald-700 hover:bg-emerald-100/50"
-                : "border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-elevated hover:border-foreground/30"
-            }`}
-          >
-            {justAdded ? (
-              <Check className="size-4 text-emerald-600" />
-            ) : inCart ? (
-              <Check className="size-4 text-emerald-700" />
-            ) : (
-              <Plus className="size-4" />
-            )}
-          </button>
+          {/* Botón Secundario: Añadir a lista de consulta con micro-interacción */}
+          <div className="relative flex items-center justify-center">
+            {/* Badge flotante +1 al presionar */}
+            <AnimatePresence>
+              {justAdded && !reducedMotion && (
+                <motion.span
+                  key={clickCount}
+                  initial={{ opacity: 0, y: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, y: -26, scale: 1 }}
+                  exit={{ opacity: 0, y: -34, scale: 0.8 }}
+                  transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                  className="pointer-events-none absolute -top-1 z-30 select-none whitespace-nowrap rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-black tracking-tight text-white shadow-md shadow-emerald-600/35"
+                >
+                  +1
+                </motion.span>
+              )}
+            </AnimatePresence>
+
+            <motion.button
+              type="button"
+              onClick={handleAddToList}
+              aria-label={`Añadir ${product.name} a la lista de cotización`}
+              title={
+                justAdded
+                  ? "¡Añadido a la lista!"
+                  : inCart
+                  ? "Sumar una unidad más"
+                  : "Añadir a la lista de consulta"
+              }
+              whileTap={reducedMotion ? undefined : { scale: 0.82 }}
+              whileHover={reducedMotion ? undefined : { scale: 1.08 }}
+              animate={
+                justAdded && !reducedMotion
+                  ? {
+                      scale: [1, 1.25, 0.94, 1],
+                      transition: { duration: 0.4, ease: "easeOut" },
+                    }
+                  : { scale: 1 }
+              }
+              className={`relative size-9 sm:size-10 rounded-full border flex items-center justify-center transition-colors duration-200 ${
+                justAdded
+                  ? "border-emerald-600 bg-emerald-50 text-emerald-700 ring-4 ring-emerald-500/25 shadow-sm"
+                  : inCart
+                  ? "border-emerald-500/50 bg-emerald-50/60 text-emerald-700 hover:bg-emerald-100/60"
+                  : "border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-elevated hover:border-foreground/30 shadow-2xs"
+              }`}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {justAdded ? (
+                  <motion.span
+                    key="just-added"
+                    initial={reducedMotion ? false : { scale: 0.4, rotate: -60 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    exit={{ scale: 0, rotate: 45 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                    className="flex items-center justify-center text-emerald-600"
+                  >
+                    <Check className="size-4 stroke-[2.8]" />
+                  </motion.span>
+                ) : inCart ? (
+                  <motion.span
+                    key="in-cart"
+                    initial={reducedMotion ? false : { scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    className="flex items-center justify-center text-emerald-700"
+                  >
+                    <Check className="size-4 stroke-[2.2]" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="plus"
+                    initial={reducedMotion ? false : { scale: 0.8, rotate: 90 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    exit={{ scale: 0 }}
+                    transition={{ type: "spring", stiffness: 450, damping: 22 }}
+                    className="flex items-center justify-center"
+                  >
+                    <Plus className="size-4 stroke-[2.2]" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
 
           {/* Botón Primario: Consulta directa por WhatsApp */}
           <a

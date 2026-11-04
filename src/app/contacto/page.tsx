@@ -40,6 +40,8 @@ export default function ContactoPage() {
                   <p>· Lunes a sábados de 9:00 a 20:00 hs</p>
                   <p>· Asesoramiento personalizado sin intermediarios</p>
                   <p>· Número directo: +{siteConfig.whatsappNumber}</p>
+                  <p>· Email oficial: <a href={`mailto:${siteConfig.email}`} className="text-foreground hover:underline font-medium">{siteConfig.email}</a></p>
+                  <p>· Instagram oficial: <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">{siteConfig.instagramHandle}</a></p>
                 </div>
               </div>
 
@@ -78,7 +80,7 @@ export default function ContactoPage() {
                       Modalidad
                     </span>
                     <p className="text-sm font-medium text-foreground mt-0.5">
-                      Envíos con Andreani / Correo Argentino o punto pactado
+                      Envíos diarios vía Vía Cargo, Andreani o Correo Argentino, o retiro coordinado
                     </p>
                   </div>
                 </div>

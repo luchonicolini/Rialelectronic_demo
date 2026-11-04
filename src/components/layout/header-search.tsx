@@ -15,12 +15,15 @@ export function HeaderSearch({ onClose }: HeaderSearchProps) {
   }, []);
 
   return (
-    <div id="header-search-panel" className="border-t border-border bg-surface">
+    <div
+      id="header-search-panel"
+      className="mx-auto mt-2 w-full max-w-[1328px] rounded-[20px] border border-black/20 bg-white/95 px-4 py-2 backdrop-blur-[32px] shadow-[0_12px_32px_rgba(0,0,0,0.08)] lg:rounded-[24px]"
+    >
       <form
         role="search"
         action="/catalogo"
         onSubmit={onClose}
-        className="mx-auto flex w-full max-w-[1440px] items-center gap-3 px-4 py-3 sm:px-6 lg:px-10 xl:px-14"
+        className="flex w-full items-center gap-3"
       >
         <label htmlFor="site-search" className="sr-only">
           Buscar productos
@@ -33,11 +36,11 @@ export function HeaderSearch({ onClose }: HeaderSearchProps) {
           type="search"
           autoComplete="off"
           placeholder="Buscar productos, marcas o categorías"
-          className="h-9 w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+          className="h-10 w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
         />
         <button
           type="submit"
-          className="inline-flex h-9 shrink-0 items-center rounded-control border border-border px-3 text-sm font-medium text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated"
+          className="inline-flex h-9 shrink-0 items-center rounded-full border border-border px-4 text-sm font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-black/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
         >
           Buscar
         </button>
@@ -45,7 +48,7 @@ export function HeaderSearch({ onClose }: HeaderSearchProps) {
           type="button"
           onClick={onClose}
           aria-label="Cerrar búsqueda"
-          className="inline-flex size-9 shrink-0 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground"
+          className="inline-flex size-9 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-black/[0.05] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
         >
           <CloseIcon className="size-4" />
         </button>

@@ -24,7 +24,7 @@ const FAQS: FaqItem[] = [
   {
     question: "¿Hacen envíos a todo el país?",
     answer:
-      "Sí. Realizamos despachos protegidos y asegurados a todo el territorio nacional a través de Andreani. El costo y el plazo se confirman según tu localidad antes de despachar, con número de guía online.",
+      "Sí. Realizamos despachos diarios y asegurados a todo el territorio nacional a través de Vía Cargo, Andreani y Correo Argentino (demora habitual de 3 a 5 días). El costo y el plazo se confirman según tu localidad antes de despachar, con número de guía en tiempo real.",
   },
   {
     question: "¿Qué garantía tienen los productos?",

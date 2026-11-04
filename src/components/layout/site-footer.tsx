@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { whatsappUrl } from "@/lib/site";
+import { siteConfig, whatsappUrl } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -48,7 +48,7 @@ export function SiteFooter() {
                 WhatsApp
               </a>
               <a
-                href="https://www.instagram.com/"
+                href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-2 min-h-[40px] rounded-full border border-white/15 text-xs font-semibold text-white transition-colors hover:bg-white/10 hover:border-white/30"
@@ -68,6 +68,25 @@ export function SiteFooter() {
                   <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
                 </svg>
                 Instagram
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="inline-flex items-center gap-2 px-3.5 py-2 min-h-[40px] rounded-full border border-white/15 text-xs font-semibold text-white transition-colors hover:bg-white/10 hover:border-white/30"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="size-3.5 shrink-0"
+                  aria-hidden="true"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                Email
               </a>
             </div>
           </div>
@@ -118,18 +137,23 @@ export function SiteFooter() {
             </h3>
             <ul className="space-y-2.5 text-xs text-[#c3c5c9]">
               <li>
-                <Link href="/#como-comprar" className="hover:text-white transition-colors">
+                <Link href="/como-comprar" className="hover:text-white transition-colors">
                   Cómo comprar
                 </Link>
               </li>
               <li>
                 <Link href="/envios" className="hover:text-white transition-colors">
-                  Envíos a todo el país
+                  Envíos y retiros
                 </Link>
               </li>
               <li>
-                <Link href="/#ayuda" className="hover:text-white transition-colors">
-                  Preguntas frecuentes
+                <Link href="/cambios" className="hover:text-white transition-colors">
+                  Garantía y cambios
+                </Link>
+              </li>
+              <li>
+                <Link href="/ayuda" className="hover:text-white transition-colors">
+                  Centro de ayuda
                 </Link>
               </li>
               <li>
@@ -195,6 +219,24 @@ export function SiteFooter() {
                   className="hover:text-white transition-colors font-semibold text-white"
                 >
                   Escribinos por WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {siteConfig.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {siteConfig.instagramHandle}
                 </a>
               </li>
               <li>

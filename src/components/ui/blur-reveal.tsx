@@ -13,20 +13,16 @@ interface BlurRevealProps {
   once?: boolean;
 }
 
-function subscribeToStorage() {
+function subscribeSession() {
   return () => {};
 }
 
-function getSessionSnapshot(): boolean {
+function getSessionSnapshot() {
   if (typeof window === "undefined") return false;
-  try {
-    return Boolean(sessionStorage.getItem("rial_entered"));
-  } catch {
-    return false;
-  }
+  return Boolean(sessionStorage.getItem("rial_entered"));
 }
 
-function getServerSnapshot(): boolean {
+function getServerSnapshot() {
   return false;
 }
 
@@ -34,26 +30,25 @@ export function BlurReveal({
   children,
   className = "",
   delay = 0,
-  duration = 0.18,
+  duration = 0.2,
   yOffset = 6,
+  blur = 0,
   once = true,
 }: BlurRevealProps) {
   const shouldReduceMotion = useReducedMotion();
   const alreadyEntered = useSyncExternalStore(
-    subscribeToStorage,
+    subscribeSession,
     getSessionSnapshot,
     getServerSnapshot
   );
 
   useEffect(() => {
-    try {
+    if (typeof window !== "undefined" && !sessionStorage.getItem("rial_entered")) {
       sessionStorage.setItem("rial_entered", "1");
-    } catch {
-      // Ignorar si el almacenamiento está restringido
     }
   }, []);
 
-  // Si el usuario prefiere movimiento reducido o ya ingresó en esta sesión, se renderiza de inmediato sin animación
+  // Si el usuario prefiere movimiento reducido o ya navegó en la web, se renderiza inmediatamente sin animación
   if (shouldReduceMotion || alreadyEntered) {
     return <div className={className}>{children}</div>;
   }
@@ -63,10 +58,12 @@ export function BlurReveal({
       initial={{
         opacity: 0,
         y: yOffset,
+        filter: blur > 0 ? `blur(${blur}px)` : undefined,
       }}
       whileInView={{
         opacity: 1,
         y: 0,
+        filter: blur > 0 ? "blur(0px)" : undefined,
       }}
       viewport={{
         once,

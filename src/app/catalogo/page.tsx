@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { SiteHeader } from "@/components/layout/site-header";
 import { CatalogBrowser } from "@/components/catalogo/catalog-browser";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -14,7 +15,16 @@ export default function CatalogoPage() {
     <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-[var(--accent-contrast)]">
       <SiteHeader />
       <main id="contenido" className="flex-1">
-        <CatalogBrowser />
+        <Suspense
+          fallback={
+            <div className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 lg:px-10">
+              <div className="h-8 w-60 animate-pulse rounded bg-border/50" />
+              <div className="mt-4 h-4 w-40 animate-pulse rounded bg-border/40" />
+            </div>
+          }
+        >
+          <CatalogBrowser />
+        </Suspense>
       </main>
       <SiteFooter />
       <WhatsappFloat />

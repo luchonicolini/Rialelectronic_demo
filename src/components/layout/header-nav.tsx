@@ -24,8 +24,8 @@ export function HeaderNav({
               onClick={onNavigate}
               className={
                 isVertical
-                  ? "block border-b border-border py-3 text-base font-medium text-foreground transition-colors duration-[var(--duration-feedback)] hover:text-accent"
-                   : "relative py-2 text-[13px] font-medium tracking-[0.01em] text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+                  ? "block border-b border-border py-3.5 text-base font-medium text-foreground transition-colors duration-[var(--duration-feedback)] hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                  : "relative py-2 text-[14px] font-medium tracking-[0.01em] text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
               }
             >
               {item.label}

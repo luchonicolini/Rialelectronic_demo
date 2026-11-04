@@ -43,6 +43,7 @@ next-env.d.ts
 
 # Agent skills: platform-specific binary (launcher re-downloads on first run)
 .opencode/skills/impeccable/scripts/bin/
+.impeccable/
 
 # Visual QA artifacts
 docs/qa/*.png

@@ -17,7 +17,7 @@ export function ShippingSection() {
     >
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 xl:px-14">
         <BlurReveal duration={0.65} yOffset={24}>
-          <div className="rounded-[20px] sm:rounded-[28px] border border-border bg-white dark:bg-surface p-6 sm:p-10 lg:px-10 lg:pt-14 lg:pb-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-foreground">
+          <div className="rounded-[20px] sm:rounded-[28px] border border-border bg-white p-6 sm:p-10 lg:px-10 lg:pt-14 lg:pb-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-foreground">
             {/* Encabezado */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] items-end gap-5 lg:gap-12 pb-7 lg:pb-9 border-b border-border/70">
               <h2
@@ -38,7 +38,7 @@ export function ShippingSection() {
             {/* Cuerpo: Efecto de Envío en Vivo y Rutas */}
             <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] items-stretch gap-8 lg:gap-12 py-7 sm:py-9">
               {/* Tarjeta Visual: Efecto de Envío con Mapa Urbano Auténtico */}
-              <div className="order-2 lg:order-1 relative rounded-[22px] sm:rounded-[24px] bg-[#f8f9fb] dark:bg-elevated/40 border border-border/80 p-5 sm:p-6 shadow-xs flex flex-col justify-between overflow-hidden min-h-[380px] sm:min-h-[420px]">
+              <div className="order-2 lg:order-1 relative rounded-[22px] sm:rounded-[24px] bg-[#f8f9fb] border border-border/80 p-5 sm:p-6 shadow-xs flex flex-col justify-between overflow-hidden min-h-[380px] sm:min-h-[420px]">
                 {/* Cabecera del Mapa en Vivo */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-border/70">
                   <div className="flex items-center gap-2">
@@ -52,57 +52,55 @@ export function ShippingSection() {
                   </span>
                 </div>
 
-                {/* Lienzo del Mapa con Bloques Urbanos, Agua, Avenidas y Trazado */}
-                <div className="relative w-full flex-1 my-3 sm:my-4 rounded-[18px] bg-[#edf0f5] dark:bg-[#181b22] border border-border/70 overflow-hidden min-h-[240px] sm:min-h-[260px]">
+                {/* Lienzo del Mapa con Bloques Urbanos, Agua, Avenidas y Trazado (Estilo Cartográfico Claro) */}
+                <div className="relative w-full flex-1 my-3 sm:my-4 rounded-[18px] bg-[#f0f3f8] border border-border/80 overflow-hidden min-h-[240px] sm:min-h-[260px] shadow-inner">
                   <svg
                     viewBox="0 0 400 250"
                     className="absolute inset-0 w-full h-full"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
-                    {/* Fondo base urbano */}
-                    <rect width="400" height="250" fill="#edf0f5" className="dark:fill-[#181b22]" />
+                    {/* Fondo base urbano claro */}
+                    <rect width="400" height="250" fill="#f0f3f8" />
 
-                    {/* Costa / Río en lateral superior derecho */}
+                    {/* Costa / Río en lateral superior derecho (Azul cielo suave) */}
                     <path
                       d="M 285,0 Q 315,60 335,120 T 385,250 L 400,250 L 400,0 Z"
-                      fill="#d7e5f2"
-                      className="dark:fill-[#1e293b]/70"
+                      fill="#e0f2fe"
                     />
                     <path
                       d="M 285,0 Q 315,60 335,120 T 385,250"
-                      stroke="#b8d4ed"
-                      className="dark:stroke-[#334155]"
+                      stroke="#bae6fd"
                       strokeWidth="2"
                       fill="none"
                     />
 
-                    {/* Manzanas urbanas residenciales */}
-                    <rect x="15" y="15" width="60" height="40" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="85" y="15" width="70" height="40" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="165" y="15" width="80" height="40" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    {/* Manzanas urbanas residenciales (Blanco puro con sutil borde gris) */}
+                    <rect x="15" y="15" width="60" height="40" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="85" y="15" width="70" height="40" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="165" y="15" width="80" height="40" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
 
-                    {/* Parque o zona verde */}
-                    <rect x="15" y="65" width="45" height="55" rx="8" fill="#dbe7dd" className="dark:fill-[#1e3328]" />
-                    <path d="M 18,110 Q 35,90 55,115" stroke="#c8dec8" className="dark:stroke-[#274837]" strokeWidth="1.5" fill="none" />
+                    {/* Parque o zona verde (Verde menta suave) */}
+                    <rect x="15" y="65" width="45" height="55" rx="8" fill="#dcfce7" stroke="#bbf7d0" strokeWidth="1" />
+                    <path d="M 18,110 Q 35,90 55,115" stroke="#86efac" strokeWidth="1.5" fill="none" />
 
                     {/* Manzanas centrales */}
-                    <rect x="70" y="65" width="55" height="55" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="135" y="65" width="65" height="55" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="210" y="65" width="60" height="45" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="70" y="65" width="55" height="55" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="135" y="65" width="65" height="55" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="210" y="65" width="60" height="45" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
 
                     {/* Manzanas inferiores */}
-                    <rect x="15" y="130" width="75" height="50" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="100" y="130" width="80" height="50" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="190" y="120" width="70" height="60" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="15" y="130" width="75" height="50" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="100" y="130" width="80" height="50" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="190" y="120" width="70" height="60" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
 
                     {/* Manzanas sur */}
-                    <rect x="15" y="190" width="110" height="48" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="135" y="190" width="90" height="48" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
-                    <rect x="235" y="190" width="60" height="48" rx="4" fill="#e2e7ef" className="dark:fill-[#222733]" />
+                    <rect x="15" y="190" width="110" height="48" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="135" y="190" width="90" height="48" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <rect x="235" y="190" width="60" height="48" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
 
-                    {/* Red de calles secundarias (blancas en claro, sutiles en oscuro) */}
-                    <g stroke="#ffffff" className="dark:stroke-[#2d3342]" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    {/* Red de calles secundarias */}
+                    <g stroke="#ffffff" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="0" y1="60" x2="285" y2="60" />
                       <line x1="0" y1="125" x2="335" y2="125" />
                       <line x1="0" y1="185" x2="355" y2="185" />
@@ -116,15 +114,13 @@ export function ShippingSection() {
                     <path
                       d="M 275,0 Q 300,70 320,135 T 370,250"
                       stroke="#cbd5e1"
-                      className="dark:stroke-[#334155]"
                       strokeWidth="7"
                       strokeLinecap="round"
                       fill="none"
                     />
                     <path
                       d="M 275,0 Q 300,70 320,135 T 370,250"
-                      stroke="#f8fafc"
-                      className="dark:stroke-[#1e293b]"
+                      stroke="#ffffff"
                       strokeWidth="4"
                       strokeLinecap="round"
                       fill="none"
@@ -134,33 +130,43 @@ export function ShippingSection() {
                     <path
                       d="M 0,210 L 90,160 L 205,95 L 300,45"
                       stroke="#cbd5e1"
-                      className="dark:stroke-[#334155]"
                       strokeWidth="5"
                       strokeLinecap="round"
                       fill="none"
                     />
                     <path
                       d="M 0,210 L 90,160 L 205,95 L 300,45"
-                      stroke="#f8fafc"
-                      className="dark:stroke-[#1e293b]"
+                      stroke="#ffffff"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       fill="none"
                     />
 
                     {/* Rotonda */}
-                    <circle cx="205" cy="95" r="10" fill="#edf0f5" className="dark:fill-[#181b22]" stroke="#cbd5e1" strokeWidth="3" />
-                    <circle cx="205" cy="95" r="5" fill="#dbe7dd" className="dark:fill-[#1e3328]" />
+                    <circle cx="205" cy="95" r="10" fill="#f0f3f8" stroke="#cbd5e1" strokeWidth="3" />
+                    <circle cx="205" cy="95" r="5" fill="#dcfce7" />
 
-                    {/* Etiquetas Cartográficas Discretas */}
-                    <text x="22" y="80" fill="#94a3b8" fontSize="7.5" fontWeight="600" letterSpacing="0.05em">PARQUE NORTE</text>
-                    <text x="315" y="40" fill="#64748b" fontSize="7.5" fontWeight="600" letterSpacing="0.05em">COSTANERA</text>
-                    <text x="140" y="55" fill="#94a3b8" fontSize="7" fontWeight="500">AV. DEL LIBERTADOR</text>
-                    <text x="145" y="180" fill="#94a3b8" fontSize="7" fontWeight="500">AV. SANTA FE</text>
+                    {/* Etiquetas Cartográficas Discretas y Legibles */}
+                    <text x="22" y="80" fill="#15803d" fontSize="7.5" fontWeight="600" letterSpacing="0.05em">PARQUE NORTE</text>
+                    <text x="315" y="40" fill="#0284c7" fontSize="7.5" fontWeight="600" letterSpacing="0.05em">COSTANERA</text>
+                    <text x="140" y="55" fill="#64748b" fontSize="7" fontWeight="600">AV. DEL LIBERTADOR</text>
+                    <text x="145" y="180" fill="#64748b" fontSize="7" fontWeight="600">AV. SANTA FE</text>
+
+                    {/* Resplandor suave de la ruta */}
+                    <path
+                      d="M 65,40 L 65,95 L 130,95 L 170,125 L 205,125 L 235,160 L 275,160"
+                      stroke="#10b981"
+                      strokeWidth="8"
+                      strokeOpacity="0.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
 
                     {/* Trayectoria Dinámica del Envío (Ruta GPS en Verde Esmeralda) */}
                     <motion.path
                       d="M 65,40 L 65,95 L 130,95 L 170,125 L 205,125 L 235,160 L 275,160"
+                      fill="none"
                       stroke="#0d7a53"
                       strokeWidth="4.5"
                       strokeLinecap="round"
@@ -215,7 +221,7 @@ export function ShippingSection() {
                 {/* Origen: Pedido confirmado */}
                 <div className="flex items-start gap-3.5">
                   <PackageCheck
-                    className="size-5 shrink-0 text-emerald-600 dark:text-emerald-500 mt-0.5"
+                    className="size-5 shrink-0 text-emerald-600 mt-0.5"
                     aria-hidden="true"
                   />
                   <div className="grid gap-1">
@@ -232,7 +238,7 @@ export function ShippingSection() {
                 <div className="relative mt-2.5 ml-[9px] sm:ml-2.5 pl-7 sm:pl-[34px] py-1.5 border-l border-border/80">
                   {/* Nodo 1: Envío a domicilio */}
                   <article className="relative py-5 sm:py-[22px] grid grid-cols-1">
-                    <span className="absolute -left-[49px] sm:-left-[55px] top-4.5 sm:top-[18px] size-10 sm:size-[42px] rounded-full border border-border bg-white dark:bg-surface shadow-[0_2px_6px_rgba(0,0,0,0.04)] text-foreground flex items-center justify-center">
+                    <span className="absolute -left-[49px] sm:-left-[55px] top-4.5 sm:top-[18px] size-10 sm:size-[42px] rounded-full border border-border bg-white shadow-[0_2px_6px_rgba(0,0,0,0.04)] text-foreground flex items-center justify-center">
                       <Truck className="size-[18px]" aria-hidden="true" />
                     </span>
                     <div>
@@ -240,9 +246,13 @@ export function ShippingSection() {
                         Envío a tu domicilio
                       </h3>
                       <p className="mt-1.5 max-w-[48ch] text-xs sm:text-sm text-muted-foreground leading-relaxed text-pretty">
-                        A todo el país. El costo y el plazo se confirman según el producto y el
-                        destino antes de despachar.
+                        Despachos diarios a todo el país mediante Vía Cargo, Andreani y Correo Argentino con código de seguimiento en tiempo real (3 a 5 días).
                       </p>
+                      <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-muted-foreground">
+                        <span className="rounded-md border border-border bg-surface px-2.5 py-1">Vía Cargo</span>
+                        <span className="rounded-md border border-border bg-surface px-2.5 py-1">Andreani</span>
+                        <span className="rounded-md border border-border bg-surface px-2.5 py-1">Correo Argentino</span>
+                      </div>
                     </div>
                   </article>
 
@@ -251,7 +261,7 @@ export function ShippingSection() {
 
                   {/* Nodo 2: Retiro coordinado */}
                   <article className="relative py-5 sm:py-[22px] grid grid-cols-1">
-                    <span className="absolute -left-[49px] sm:-left-[55px] top-4.5 sm:top-[18px] size-10 sm:size-[42px] rounded-full border border-border bg-white dark:bg-surface shadow-[0_2px_6px_rgba(0,0,0,0.04)] text-foreground flex items-center justify-center">
+                    <span className="absolute -left-[49px] sm:-left-[55px] top-4.5 sm:top-[18px] size-10 sm:size-[42px] rounded-full border border-border bg-white shadow-[0_2px_6px_rgba(0,0,0,0.04)] text-foreground flex items-center justify-center">
                       <MapPin className="size-[18px]" aria-hidden="true" />
                     </span>
                     <div>
@@ -268,7 +278,7 @@ export function ShippingSection() {
                 {/* Nota de soporte */}
                 <div className="flex items-center gap-2.5 mt-3.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   <MessageCircle
-                    className="size-4 shrink-0 text-emerald-600 dark:text-emerald-500"
+                    className="size-4 shrink-0 text-emerald-600"
                     aria-hidden="true"
                   />
                   <span>La atención y la coordinación continúan por WhatsApp.</span>
@@ -290,7 +300,7 @@ export function ShippingSection() {
               </a>
               <Link
                 href="/envios"
-                className="inline-flex items-center min-h-11 text-sm font-semibold text-foreground underline underline-offset-4 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                className="inline-flex items-center min-h-11 text-sm font-semibold text-foreground underline underline-offset-4 hover:text-emerald-600 transition-colors"
               >
                 Ver información de envíos
               </Link>

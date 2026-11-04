@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Instrument_Serif, Geist_Mono } from "next/font/google";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { CartProvider } from "@/context/cart-context";
+import { CartDrawer } from "@/components/commerce/cart-drawer";
+import { FloatingCartButton } from "@/components/commerce/floating-cart-button";
 import "./globals.css";
 
 // 1. Cuerpo & UI: Variable Font optimizada y auto-alojada
@@ -27,6 +30,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rialelectronica-demo.vercel.app"),
   title: {
     default: "Rial Electrónica — Tecnología y Equipos Originales",
     template: "%s · Rial Electrónica",
@@ -49,7 +53,11 @@ export default function RootLayout({
         >
           Saltar al contenido
         </a>
-        <SmoothScroll>{children}</SmoothScroll>
+        <CartProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+          <CartDrawer />
+          <FloatingCartButton />
+        </CartProvider>
       </body>
     </html>
   );

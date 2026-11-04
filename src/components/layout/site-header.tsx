@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/cart-context";
 import { HeaderNav } from "@/components/layout/header-nav";
 import { HeaderSearch } from "@/components/layout/header-search";
 import { UsdtBadge } from "@/components/layout/usdt-badge";
@@ -22,11 +23,16 @@ const iconButton =
 export function SiteHeader() {
   const [panel, setPanel] = useState<Panel>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const { totalItems, openCart } = useCart();
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setPanel(null);
+      }
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        searchInputRef.current?.focus();
       }
     }
 
@@ -39,7 +45,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface transition-colors">
+    <header className="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur-md transition-colors">
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:h-20 lg:gap-6 lg:px-10 xl:px-14">
         {/* Identidad / Logo */}
         <Link
@@ -92,15 +98,23 @@ export function SiteHeader() {
           {/* Indicador de Cotización USDT en vivo vía DolarApi */}
           <UsdtBadge className="hidden sm:inline-flex h-10" />
 
-          {/* Botón Carrito / Lista de Cotización */}
-          <Link
-            href="/lista"
-            aria-label="Ver carrito de cotizaciones"
-            className="inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/50 px-3.5 text-xs font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-[0.98]"
+          {/* Botón Carrito / Lista de Cotización: abre el panel lateral sin salir de la página */}
+          <button
+            type="button"
+            onClick={openCart}
+            aria-label={`Ver carrito de cotizaciones${totalItems > 0 ? ` (${totalItems} artículos)` : ""}`}
+            className="relative inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/50 px-3.5 text-xs font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-[0.98]"
           >
-            <ShoppingCart className="size-4 text-foreground shrink-0" aria-hidden="true" />
+            <div className="relative flex items-center justify-center">
+              <ShoppingCart className="size-4 text-foreground shrink-0" aria-hidden="true" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2.5 flex min-w-4 h-4 items-center justify-center rounded-full bg-[var(--accent)] px-1 text-[9px] font-extrabold text-[var(--accent-contrast)]">
+                  {totalItems > 99 ? "99+" : totalItems}
+                </span>
+              )}
+            </div>
             <span>Carrito</span>
-          </Link>
+          </button>
 
           {/* Botón Menú Mobile */}
           <button
@@ -146,10 +160,18 @@ export function SiteHeader() {
             />
 
             <div className="mt-4 pt-3 border-t border-border/80 flex items-center justify-between gap-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setPanel(null);
+                  openCart();
+                }}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-foreground shadow-2xs"
+              >
+                <ShoppingCart className="size-3.5" />
+                <span>Lista ({totalItems})</span>
+              </button>
               <UsdtBadge className="h-9" />
-              <span className="text-[11px] text-muted-foreground">
-                Cotización en vivo
-              </span>
             </div>
 
             <a

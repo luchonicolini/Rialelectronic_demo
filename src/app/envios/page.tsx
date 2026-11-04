@@ -1,25 +1,8 @@
-import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/site-header";
-import { ShippingSection } from "@/components/home/shipping-section";
-import { FaqSection } from "@/components/home/faq-section";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { WhatsappFloat } from "@/components/home/whatsapp-float";
+import { InfoPageLayout } from "@/components/layout/info-page-layout";
+import { infoMetadata } from "@/lib/info-pages";
 
-export const metadata: Metadata = {
-  title: "Envíos y Retiros — Rial Electrónica",
-  description: "Despachos asegurados a todo el país vía Andreani y Correo Argentino, o retiro coordinado.",
-};
+export const metadata = infoMetadata("envios");
 
 export default function EnviosPage() {
-  return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-[var(--accent)] selection:text-[var(--accent-contrast)]">
-      <SiteHeader />
-      <main id="contenido" className="flex-1">
-        <ShippingSection />
-        <FaqSection />
-      </main>
-      <SiteFooter />
-      <WhatsappFloat />
-    </div>
-  );
+  return <InfoPageLayout currentKey="envios" />;
 }

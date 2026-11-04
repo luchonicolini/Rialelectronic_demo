@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus, Check } from "lucide-react";
 import type { Product } from "@/data/mock-catalog";
 import { whatsappUrl } from "@/lib/site";
+import { useCart } from "@/context/cart-context";
+import { ProductImage } from "@/components/ui/product-image";
 
 interface ProductCardProps {
   product: Product;
@@ -13,6 +14,18 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, className = "" }: ProductCardProps) {
+  const { addItem, isInCart } = useCart();
+  const [justAdded, setJustAdded] = useState(false);
+  const inCart = isInCart(product.id);
+
+  const handleAddToList = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem(product);
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 1400);
+  };
+
   const waLink = whatsappUrl(
     `¡Hola Rial Electrónica! Quiero consultar cotización y stock de ${product.name} (${product.brand}).`
   );
@@ -27,17 +40,12 @@ export function ProductCard({ product, className = "" }: ProductCardProps) {
     <article
       className={`product-card group flex flex-col justify-between h-full ${className}`}
     >
-      {/* Contenedor Fotográfico con Aspect Ratio y Bordes Redondeados */}
-      <div className="relative block aspect-[1/1.02] w-full rounded-[18px] sm:rounded-[22px] bg-[#f5f5f7] border border-black/[0.04] p-3 sm:p-5 overflow-hidden transition-all duration-300 group-hover:border-black/[0.12] group-hover:shadow-md">
-        {/* Badge Flotante Izquierdo: Novedad / Destacado */}
-        {product.badge && (
-          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 px-2.5 py-0.5 sm:py-1 rounded-full bg-[#18191c]/90 backdrop-blur-sm text-white border border-white/10 flex items-center justify-center shadow-xs">
-            <span className="text-[11px] font-semibold tracking-tight">
-              {product.badge}
-            </span>
-          </div>
-        )}
-
+      {/* Contenedor Fotográfico con Aspect Ratio y Enlace al Detalle */}
+      <Link
+        href={`/producto/${product.id}`}
+        aria-label={`Ver detalles de ${product.name}`}
+        className="relative block aspect-[1/1.02] w-full rounded-[18px] sm:rounded-[22px] bg-[#f5f5f7] border border-black/[0.04] p-3 sm:p-5 overflow-hidden transition-all duration-300 group-hover:border-black/[0.12] group-hover:shadow-md"
+      >
         {/* Badge de Descuento en Esquina Superior Derecha Biselada */}
         {product.discountBadge && (
           <div className="absolute top-0 right-0 z-10 px-3 py-1.5 sm:px-3.5 sm:py-2 bg-[#f43f37] text-white rounded-bl-[18px] sm:rounded-bl-[20px] flex items-center justify-center shadow-xs font-bold leading-none select-none">
@@ -47,19 +55,18 @@ export function ProductCard({ product, className = "" }: ProductCardProps) {
           </div>
         )}
 
-        {/* Imagen Centrada con Efecto Zoom en Hover */}
+        {/* Imagen Centrada con Efecto Zoom en Hover y Fallback Automático */}
         <div className="relative w-full h-full flex items-center justify-center p-2">
           <div className="relative w-full h-full transition-transform duration-500 ease-out group-hover:scale-105">
-            <Image
-              src={product.image || "/products/imagen-pendiente.png"}
+            <ProductImage
+              src={product.image}
               alt={`${product.brand} ${product.name}`}
-              fill
-              sizes="(max-width: 640px) 48vw, (max-width: 1024px) 30vw, 25vw"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 380px"
               className="object-contain"
             />
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Meta, Título y Especificaciones con la Tipografía Estándar del Sitio */}
       <div className="mt-3 flex flex-col flex-1">
@@ -67,10 +74,7 @@ export function ProductCard({ product, className = "" }: ProductCardProps) {
           {product.brand} · {product.category}
         </span>
         <h3 className="text-base font-bold text-foreground tracking-tight mt-1 line-clamp-1 group-hover:text-[var(--accent)] transition-colors">
-          <Link
-            href={`/catalogo?categoria=${product.categorySlug}`}
-            title={product.name}
-          >
+          <Link href={`/producto/${product.id}`} title={product.name}>
             {product.name}
           </Link>
         </h3>
@@ -94,16 +98,43 @@ export function ProductCard({ product, className = "" }: ProductCardProps) {
           )}
         </div>
 
-        <a
-          href={waLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Consultar cotización de ${product.name} por WhatsApp`}
-          title="Consultar por WhatsApp"
-          className="size-9 sm:size-10 rounded-full border border-border bg-surface flex items-center justify-center text-foreground transition-all duration-300 hover:bg-[#18191c] hover:text-white hover:border-[#18191c] hover:scale-105 active:scale-95 shadow-2xs shrink-0"
-        >
-          <ArrowUpRight className="size-4 sm:size-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+        {/* Acciones: Botón Secundario (Añadir a lista) + Botón Primario (WhatsApp) */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          {/* Botón Secundario: Añadir a lista de consulta */}
+          <button
+            type="button"
+            onClick={handleAddToList}
+            aria-label={`Añadir ${product.name} a la lista de cotización`}
+            title={justAdded ? "¡Añadido a la lista!" : inCart ? "Sumar una unidad más" : "Añadir a la lista de consulta"}
+            className={`size-9 sm:size-10 rounded-full border flex items-center justify-center transition-all duration-200 active:scale-95 ${
+              justAdded
+                ? "border-emerald-600 bg-emerald-50 text-emerald-700"
+                : inCart
+                ? "border-emerald-500/50 bg-emerald-50/50 text-emerald-700 hover:bg-emerald-100/50"
+                : "border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-elevated hover:border-foreground/30"
+            }`}
+          >
+            {justAdded ? (
+              <Check className="size-4 text-emerald-600" />
+            ) : inCart ? (
+              <Check className="size-4 text-emerald-700" />
+            ) : (
+              <Plus className="size-4" />
+            )}
+          </button>
+
+          {/* Botón Primario: Consulta directa por WhatsApp */}
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Consultar cotización de ${product.name} por WhatsApp`}
+            title="Consultar por WhatsApp"
+            className="size-9 sm:size-10 rounded-full bg-[#18191c] text-white flex items-center justify-center transition-all duration-300 hover:opacity-90 hover:scale-105 active:scale-95 shadow-2xs shrink-0"
+          >
+            <ArrowUpRight className="size-4 sm:size-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </div>
       </div>
     </article>
   );

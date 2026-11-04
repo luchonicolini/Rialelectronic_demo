@@ -57,7 +57,7 @@ export function WholesaleBanner() {
     >
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 xl:px-14">
         <BlurReveal blur={8} yOffset={15}>
-          <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#F2F4F7] dark:bg-card border border-border/80 p-6 sm:p-10 lg:p-12 xl:p-14">
+          <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#F2F4F7] border border-border/80 p-6 sm:p-10 lg:p-12 xl:p-14">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               {/* Columna Izquierda: Mensaje Comercial Directo */}
               <div className="lg:col-span-6 flex flex-col gap-6">

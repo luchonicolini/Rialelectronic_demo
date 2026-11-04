@@ -7,9 +7,25 @@ import { MOCK_FEATURED_PRODUCTS } from "@/data/mock-catalog";
 import { ProductCard } from "@/components/commerce/product-card";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
+// IDs seleccionados para las 2 filas de la grilla principal:
+// Fila 1: smartphones de última generación
+// Fila 2: consolas, audio y accesorios seleccionados
+const FEATURED_PRODUCT_IDS = [
+  "apple-iphone-17-pro-max-3",
+  "apple-iphone-17-pro-2",
+  "apple-iphone-17",
+  "apple-iphone-16",
+  "nintendo-switch-oled-splatoon-3-64gb-japones-hegskcaaa",
+  "microsoft-xbox-series-x-1tb-usa",
+  "apple-airpods-pro-2",
+  "sony-joystick-playstation-5-dualsense",
+];
+
 export function FeaturedGrid() {
-  // Mostramos 8 productos para formar filas exactas de 4 en desktop (2 en mobile)
-  const displayProducts = MOCK_FEATURED_PRODUCTS.slice(0, 8);
+  // Obtenemos los productos en el orden exacto configurado para ambas filas
+  const displayProducts = FEATURED_PRODUCT_IDS.map((id) =>
+    MOCK_FEATURED_PRODUCTS.find((p) => p.id === id)
+  ).filter((p): p is (typeof MOCK_FEATURED_PRODUCTS)[number] => Boolean(p));
 
   return (
     <section
@@ -37,20 +53,24 @@ export function FeaturedGrid() {
 
         {/* Grilla: 2 columnas en mobile, 4 columnas en desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
-          {displayProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {displayProducts.map((product, index) => (
+            <BlurReveal key={product.id} delay={index * 0.04} blur={10} yOffset={18}>
+              <ProductCard product={product} />
+            </BlurReveal>
           ))}
         </div>
 
         {/* Botón Ver todos los productos */}
         <div className="flex justify-center mt-9 sm:mt-12">
-          <Link
-            href="/catalogo"
-            className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-[0_8px_20px_rgba(24,25,28,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
-          >
-            Ver todos los productos
-            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
+          <BlurReveal blur={6} yOffset={10}>
+            <Link
+              href="/catalogo"
+              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-[0_8px_20px_rgba(24,25,28,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
+            >
+              Ver todos los productos
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </Link>
+          </BlurReveal>
         </div>
       </div>
     </section>

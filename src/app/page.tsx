@@ -20,10 +20,10 @@ export default function Home() {
         <BrandTicker />
         <CategoriesGrid />
         <FeaturedGrid />
-        <WholesaleBanner />
         <HowItWorks />
         <ShippingSection />
         <TestimonialsGrid />
+        <WholesaleBanner />
         <FaqSection />
       </main>
       <SiteFooter />

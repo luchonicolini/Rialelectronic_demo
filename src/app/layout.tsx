@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Instrument_Serif, Geist_Mono } from "next/font/googl
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { CartProvider } from "@/context/cart-context";
 import { CartDrawer } from "@/components/commerce/cart-drawer";
-import { FloatingCartButton } from "@/components/commerce/floating-cart-button";
 import "./globals.css";
 
 // 1. Cuerpo & UI: Variable Font optimizada y auto-alojada
@@ -56,7 +55,6 @@ export default function RootLayout({
         <CartProvider>
           <SmoothScroll>{children}</SmoothScroll>
           <CartDrawer />
-          <FloatingCartButton />
         </CartProvider>
       </body>
     </html>

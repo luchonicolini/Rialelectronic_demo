@@ -18,7 +18,7 @@ import { whatsappUrl } from "@/lib/site";
 type Panel = "search" | "menu" | null;
 
 const iconButton =
-  "inline-flex size-9 sm:size-10 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
+  "inline-flex size-10 items-center justify-center rounded-control text-muted-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface";
 
 export function SiteHeader() {
   const [panel, setPanel] = useState<Panel>(null);
@@ -103,7 +103,7 @@ export function SiteHeader() {
             type="button"
             onClick={openCart}
             aria-label={`Ver carrito de cotizaciones${totalItems > 0 ? ` (${totalItems} artículos)` : ""}`}
-            className="relative inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/50 px-3.5 text-xs font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-[0.98]"
+            className="relative inline-flex h-10 items-center gap-2 rounded-control border border-border bg-elevated/50 px-2.5 sm:px-3.5 text-xs font-semibold text-foreground transition-colors duration-[var(--duration-feedback)] hover:bg-elevated hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-[0.98]"
           >
             <div className="relative flex items-center justify-center">
               <ShoppingCart className="size-4 text-foreground shrink-0" aria-hidden="true" />
@@ -113,7 +113,7 @@ export function SiteHeader() {
                 </span>
               )}
             </div>
-            <span>Carrito</span>
+            <span className="hidden sm:inline">Carrito</span>
           </button>
 
           {/* Botón Menú Mobile */}
@@ -169,7 +169,7 @@ export function SiteHeader() {
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-foreground shadow-2xs"
               >
                 <ShoppingCart className="size-3.5" />
-                <span>Lista ({totalItems})</span>
+                <span>Carrito ({totalItems})</span>
               </button>
               <UsdtBadge className="h-9" />
             </div>

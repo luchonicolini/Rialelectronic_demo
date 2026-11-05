@@ -29,13 +29,66 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rialelectronica-demo.vercel.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://rialelectronica-demo.vercel.app"
+  ),
   title: {
     default: "Rial Electrónica — Tecnología y Equipos Originales",
     template: "%s · Rial Electrónica",
   },
   description:
     "Equipos de tecnología importada, nuevos y cerrados en caja con garantía. Atención directa y personalizada en cada operación.",
+  keywords: [
+    "Rial Electrónica",
+    "electrónica buenos aires",
+    "tecnología importada",
+    "iPhone",
+    "MacBook",
+    "PlayStation",
+    "equipos originales",
+    "cotización en dólares",
+    "USDT",
+  ],
+  authors: [{ name: "Rial Electrónica" }],
+  creator: "Rial Electrónica",
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "/",
+    siteName: "Rial Electrónica",
+    title: "Rial Electrónica — Tecnología y Equipos Originales",
+    description:
+      "Equipos de tecnología importada, nuevos y cerrados en caja con garantía. Atención directa y cotizaciones por WhatsApp.",
+    images: [
+      {
+        url: "/images/delivery-package.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Rial Electrónica — Equipos originales con garantía",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rial Electrónica — Tecnología y Equipos Originales",
+    description:
+      "Equipos de tecnología importada, nuevos y cerrados en caja con garantía.",
+    images: ["/images/delivery-package.jpg"],
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({

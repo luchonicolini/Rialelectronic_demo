@@ -1,6 +1,9 @@
 export const siteConfig = {
   name: "Rial Electrónica",
-  whatsappNumber: "5491131568131",
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL || "https://rialelectronica-demo.vercel.app",
+  whatsappNumber:
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5491131568131",
   whatsappMessage:
     "Hola, estuve viendo el catálogo de Rial Electrónica y quisiera hacer una consulta. Gracias.",
   email: "admin@rialelectronica.com",

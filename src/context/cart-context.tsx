@@ -35,6 +35,8 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const STORAGE_KEY = "rial_consultation_cart";
 
+const SERVER_EMPTY_ITEMS: CartItem[] = [];
+
 let memoryItems: CartItem[] = [];
 let isStoreLoaded = false;
 let listeners: Array<() => void> = [];
@@ -54,7 +56,7 @@ const cartStore = {
     return memoryItems;
   },
   getServerSnapshot() {
-    return [];
+    return SERVER_EMPTY_ITEMS;
   },
   getLoadedSnapshot() {
     return isStoreLoaded;
